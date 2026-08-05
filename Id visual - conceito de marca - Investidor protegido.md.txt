@@ -1,0 +1,294 @@
+Concluí a inspeção. Analisei a **home** (hero/slider, especialidades, CTA, números, depoimentos, formulário, rodapé), a página **Quem Somos**, o **rodapé**, o **cabeçalho fixo**, a estrutura de navegação completa e as variáveis de CSS/tokens do WordPress+Elementor. Abaixo está o documento completo. Onde algo não pôde ser 100% confirmado, sinalizei como **estimativa** ou **não identificado**.
+
+Uma observação importante sobre o método: o site é **WordPress + tema Hello Elementor + Elementor Pro**. Muitas variáveis CSS que aparecem em `:root` (ex.: paleta "vivid-red", "luminous-amber", gradientes coloridos) são **presets padrão do WordPress/Gutenberg, não a identidade da marca**. Por isso, baseei a paleta real nas cores efetivamente computadas nos elementos da página, não nesses presets.
+
+---
+
+# Análise de Identidade Visual — Investidor Protegido
+
+## 1. Resumo executivo
+
+A **Investidor Protegido** é uma holding/franqueadora de **planejamento financeiro diversificado** (consórcio, cartas contempladas, seguros, previdência, investimentos nacionais/internacionais, crédito, planos de saúde e recuperação tributária). O site funciona como uma **landing page institucional de captação de leads e franqueados**, construído em WordPress/Elementor.
+
+A identidade é definida por um binômio forte: **preto + dourado/amarelo-ouro (#FFD400)**, remetendo a solidez, patrimônio, autoridade e "premium acessível". O logo é um **escudo dourado com coroa e barras de crescimento** — símbolo direto de proteção + prosperidade. O tom de voz é acolhedor, aspiracional e centrado na família ("Protegendo famílias e construindo um legado"). A comunicação combina prova social robusta (números grandes + depoimentos) com CTAs diretos para agendar reunião ou virar franqueado.
+
+Pontos fortes: consistência cromática, símbolo de marca claro, prova social forte. Fragilidades: tipografia inconsistente entre seções, contraste problemático em vários pontos (amarelo sobre branco, texto cinza claro), e ruído visual (fita de cotações de criptomoedas/índices no topo que não condiz com o posicionamento).
+
+## 2. Conceito central da marca
+
+**Frase-conceito:** *"Um escudo dourado para o patrimônio das famílias — proteção que gera prosperidade."*
+
+O conceito visual gira em torno de **proteção patrimonial que resulta em crescimento**. O escudo comunica segurança/defesa; a coroa sugere autoridade e conquista; as barras ascendentes dentro do escudo representam crescimento financeiro. O dourado reforça valor, riqueza e exclusividade, enquanto o preto dá seriedade e peso institucional. As fotos usam **famílias e profissionais reais** (não ilustrações), aproximando a marca do cotidiano e criando identificação emocional. É um posicionamento de **autoridade acessível**: sério o suficiente para inspirar confiança financeira, humano o suficiente para não intimidar.
+
+## 3. Posicionamento e público
+
+| Item | Constatação | Base |
+|---|---|---|
+| Segmento | Planejamento financeiro / franquia de soluções financeiras | Confirmado (home, rodapé) |
+| Proposta de valor | Centralizar "todas as soluções financeiras em um só lugar", priorizando o interesse do cliente | Confirmado (Quem Somos) |
+| Problema que resolve | Desequilíbrio e falta de educação financeira das famílias | Confirmado (Quem Somos) |
+| Diferenciais | "Cartas contempladas mais baratas do Brasil"; ~28 anos de mercado (via empresa incorporada); equipe de especialistas; modelo de franquia | Confirmado |
+| Público-alvo | **Interpretação:** famílias e profissionais de renda média/média-alta buscando imóvel, proteção e investimento; + potenciais **franqueados/planejadores** | Evidência: depoimentos (médico, quitação de financiamento), CTA "Seja um franqueado" |
+| Posicionamento | Premium acessível, autoridade consolidada | Interpretação baseada em cores/copy |
+| Arquétipos prováveis | **Guardião/Protetor** (principal) + **Sábio/Mentor** (secundário) | Interpretação |
+| Personalidade | Confiável, protetora, próxima, aspiracional | Interpretação |
+| Promessa principal | "Protegendo famílias e construindo um legado" | Confirmado (rodapé) |
+| Tom de voz | Acolhedor, motivacional, consultivo, orientado a sonhos/objetivos | Confirmado |
+| CTAs principais | "Falar com especialista", "Seja um franqueado", "Clique para saber mais", "Quero marcar uma reunião", "Enviar" | Confirmado |
+| Objeções tratadas | Medo de complexidade financeira, desconfiança (prova social/números), custo (carta "mais barata") | Interpretação |
+
+## 4. Identidade visual (logotipo)
+
+Logo principal (assinatura completa, fundo escuro): escudo com gradiente dourado, coroa no topo, três barras ascendentes internas (bar-chart), wordmark **"INVESTIDOR PROTEGIDO"** em serifada branca e tagline **"SOLUÇÕES FINANCEIRAS"** em caixa-alta dourada com tracking amplo.
+
+| Atributo | Constatação |
+|---|---|
+| Versão horizontal (símbolo + texto) | Confirmada — usada no cabeçalho e rodapé |
+| Símbolo isolado (escudo/coroa) | Usado como **favicon** (`cropped-logo-escudo`) |
+| Fundos de aplicação | Sempre sobre **preto** (header e footer) |
+| Cores do logo | Dourado gradiente (aprox. `#8C6B1F`→`#F5D23C`→`#C9971F`, **estimativa** do gradiente) + branco + preto |
+| Posição no header | Canto superior esquerdo |
+| Posição no footer | Coluna esquerda, acima da tagline |
+| Versões clara/monocromática | **Não identificadas** no site |
+| Área de proteção / usos incorretos | **Não identificados** (não há manual de marca público) |
+
+**Arquivos encontrados:**
+- Logo header/footer: `https://investidorprotegido.com.br/wp-content/uploads/2024/05/logo-menu.jpg` (752×320px, **JPG** — idealmente deveria ser PNG/SVG transparente)
+- Favicon: `.../uploads/2025/09/cropped-logo-escudo-32x32.jpg`, `-192x192.jpg`, `-180x180.jpg`
+
+## 5. Paleta de cores
+
+Cores confirmadas a partir dos estilos computados (ordenadas por frequência de uso real na página):
+
+| Token sugerido | HEX | RGB | HSL (aprox.) | Função | Onde aparece | Frequência |
+|---|---|---|---|---|---|---|
+| `--color-gray-text` | `#878B99` | 135,139,153 | 226°,8%,56% | Texto de corpo padrão | Parágrafos gerais | Muito alta (dominante em texto) |
+| `--color-black` | `#000000` | 0,0,0 | — | Fundo institucional, texto de títulos | Header, footer, títulos | Muito alta |
+| `--color-white` | `#FFFFFF` | 255,255,255 | — | Fundos de seção, texto sobre preto | Seções claras | Muito alta |
+| `--color-brand-gold` | `#FFD400` | 255,212,0 | 50°,100%,50% | **Cor de marca / destaque / botões** | Botões, títulos de card, números, eyebrows, barra de topo | Alta |
+| `--color-gray-700` | `#535866` | 83,88,102 | 226°,10%,36% | Texto secundário escuro | Subtítulos | Média |
+| `--color-gray-500` | `#69727D` | 105,114,125 | 212°,9%,45% | Texto auxiliar | — | Baixa |
+| `--color-gray-300` | `#BBBBBB` | 187,187,187 | 0°,0%,73% | Divisores/placeholder | — | Baixa |
+| `--color-ink-900` | `#16202F` / `#192431` | 22,32,47 | 213°,36%,14% | Azul-petróleo muito escuro | Fundos alternativos escuros | Baixa |
+| `--color-gold-dark` | `#F3CD14` | 243,205,20 | 50°,89%,52% | Variante de dourado (hover/gradiente) | Detalhes | Muito baixa |
+| `--bg-off-white` | `#F8F8F8` / `#F9F9FB` | 248,248,248 | — | Fundo neutro suave | Gradiente de seção | Baixa |
+| `--color-whatsapp` | `#25D366` (est. `#61CE70`) | 97,206,112 | 130°,52%,59% | Botão flutuante WhatsApp | Canto inferior direito | Pontual |
+
+**Cores de estado (sucesso/erro/alerta):** **não identificadas** como sistema próprio — o site herda os presets do WordPress (`#00d084` sucesso, `#cf2e2e` erro, `#fcb900` alerta), mas **não** há evidência de que sejam usados como regra de marca. Não tratar como cor principal.
+
+**Botões:**
+- Primário: fundo `#FFD400`, texto preto ou branco (varia — inconsistência).
+- Secundário (outline): fundo preto, borda e texto `#FFD400` (ex.: "Falar com especialista").
+
+**Gradientes realmente aplicados:**
+- `linear-gradient(110deg, #FFFFFF 0%, #F9F9FB 100%)` — fundo sutil de seção.
+- `linear-gradient(90deg, rgba(243,243,243,.99) 23%, transparent 23%)` — divisão decorativa.
+- O logo usa um gradiente dourado metálico (**estimativa**).
+
+**Alertas de acessibilidade (WCAG):**
+- ⚠️ **Amarelo `#FFD400` sobre branco** (títulos de card, eyebrows) → contraste ~1.4:1, **reprova** para texto.
+- ⚠️ **Texto cinza `#878B99` sobre branco** → ~2.9:1, abaixo do mínimo 4.5:1 para corpo.
+- ⚠️ Botão amarelo com **texto branco** ("Clique para saber mais") → contraste insuficiente; a versão com texto preto é a correta.
+- ✅ Amarelo sobre preto e branco sobre preto: bom contraste.
+
+## 6. Tipografia
+
+Fontes **carregadas** no site: Inter, Montserrat, Ubuntu, Ubuntu Condensed, Roboto, Nunito (Google Fonts). Na prática, **Inter** é a fonte de trabalho dominante; **Ubuntu** aparece nos botões do header; títulos de heros internos usam uma fonte arredondada/condensada (**estimativa: Ubuntu/Montserrat**). A serifada do logo é apenas parte da arte (**não identificada** — provável Trajan/Times-like, usada só no logotipo).
+
+| Estilo | Família | Peso | Tamanho (desktop) | Line-height | Letter-spacing | Transform | Cor | Uso |
+|---|---|---|---|---|---|---|---|---|
+| H1 (hero slider) | Inter | 700 | 50px | ~1.0 | normal | none | branco | Título do slide |
+| H2 (seção) | Inter | 500 | ~52.8px | 52.8px | -2px | none | preto 80% | Títulos de seção |
+| H3 (card) | Inter | 600 | 30px | 33px | -1.05px | none | `#FFD400` | Títulos de card |
+| Eyebrow | Inter | 600 | 16px | 24px | normal | **uppercase** | `#FFD400` | Rótulos ("PLANEJAMENTO…") |
+| Parágrafo padrão | Inter | 400 | 16px | 24px | normal | none | `#878B99` | Corpo |
+| Botão (header) | Ubuntu | 400 | 20px | 20px | -0.5px | none | ouro/preto | CTAs topo |
+| Botão (conteúdo) | Inter | 600 | 16px | 16px | -0.4px | none | preto/branco | CTAs seção |
+| Input | Inter | 400 | 16px | — | — | none | branco | Formulário |
+| Título hero interno | Ubuntu/Montserrat (est.) | 700 | ~40px | — | — | none | `#FFD400` | "Saiba mais sobre a nossa história!" |
+
+**Observação:** a escala tipográfica **não é sistemática** — mistura Inter e Ubuntu sem regra clara, e os títulos de heros internos usam fonte diferente das seções da home. Isso é uma **inconsistência**, não uma regra.
+
+## 7. Layout e espaçamentos
+
+| Atributo | Valor | Base |
+|---|---|---|
+| Largura máx. de conteúdo | **1140px** (container Elementor) / wide-size 1200px | Confirmado |
+| Content-size (texto) | 800px | Confirmado (var WP) |
+| Grid | Baseado em Elementor (flex/grid); cards de especialidade em 4 colunas | Confirmado |
+| Block gap padrão | 24px | Confirmado (var WP) |
+| Escala de espaçamento (WP presets) | 0.44 / 0.67 / 1 / 1.5 / 2.25 / 3.38 / 5.06 rem (~7/11/16/24/36/54/81px) | Confirmado (presets) |
+| Escala visual provável | **Estimativa:** múltiplos de 8 (8/16/24/32/48/64) | Estimativa |
+| Header | Fixo no topo, fundo preto, + barra de cotações + barra de contato amarela | Confirmado |
+| Footer | Fundo preto, 3 colunas (marca/tagline, contatos, navegação) | Confirmado |
+| Botão flutuante | WhatsApp verde, canto inferior direito | Confirmado |
+| Breakpoint mobile | Menu vira hamburger (`.elementor-menu-toggle`) | Confirmado (existe no DOM) |
+
+**Não pude renderizar o site em largura mobile real** — a janela redimensionou mas o viewport capturado permaneceu em ~1150px. Documentei a existência do menu hamburger via DOM, mas **o layout mobile completo (tablet e celular) não foi verificado visualmente**.
+
+## 8. Componentes da interface
+
+| Componente | Aparência / notas |
+|---|---|
+| Barra de cotações (topo) | Widget TradingView com índices e cripto, texto branco/verde/vermelho sobre preto — **ruído visual, não faz parte da identidade essencial** |
+| Barra de contato | Fundo amarelo `#FFD400`, ícones de localização/telefone pretos, ícones sociais em círculo preto |
+| Header/menu | Fundo preto, links brancos, item ativo com sublinhado dourado, dropdowns em "Quem somos" e "Nossos serviços" |
+| Botão primário | Pill (raio 25px), fundo amarelo, padding 18×32px |
+| Botão secundário | Pill, fundo preto, borda + texto amarelo, com ícone WhatsApp |
+| Hero slider (Swiper) | 4 slides, foto full-bleed, overlay escuro, título branco 50px, subtítulo, CTA amarelo, setas prev/next |
+| Cards de especialidade | Ícone linear preto, título amarelo, corpo cinza, sem borda/sombra aparente |
+| Bloco de números | Números grandes dourados + barra vertical dourada à esquerda + label cinza |
+| Depoimentos (carrossel) | Foto redonda, texto, nome, categoria "CONSÓRCIO", navegação prev/next |
+| Formulário | Fundo escuro (foto), inputs pill semi-transparentes (raio 20px, `rgba(255,255,255,.16)`), select "Serviços", botão "Enviar" amarelo com ícone |
+| Newsletter | Bloco "ASSINE NOSSA NEWSLETTER" (Quem Somos) |
+| Footer | Logo, tagline, Instagram, telefones, endereços, e-mail, navegação com item ativo sublinhado dourado |
+| Botão flutuante WhatsApp | Círculo verde fixo |
+
+Raio de card/badge padrão global: `--bord: 15px`. Sombras herdadas do WP (crisp/deep/natural) — **não confirmadas como regra de marca**.
+
+## 9. Imagens e iconografia
+
+Estilo fotográfico: **fotos reais** de famílias, casais e profissionais em contexto positivo/aspiracional; iluminação natural clara; presença humana forte; nas seções escuras há overlay escuro sobre a foto. Ícones: **estilo linear (outline), preto**, consistentes na seção de especialidades — provável biblioteca **Font Awesome 5** (carregada no site) e/ou ElementsKit/ElementsKit icons.
+
+**Ativos encontrados:**
+- Depoimentos: `.../2024/06/mauro-barros.jpg`, `poliana-medina.jpg`, `rafael.jpg`
+- Thumb WebP Elementor: `.../elementor/thumbs/investidor-protegido-...webp`
+- Logo JPG e favicons (ver §4)
+
+## 10. Movimento e interações
+
+Confirmado: **carrossel de slides** (Swiper) com auto-play e setas; **carrossel de depoimentos**; **menu com dropdowns**; **item de menu ativo com sublinhado dourado**; botão WhatsApp fixo. Estados de hover/foco/active/loading dos botões e inputs, animações de rolagem e microinterações **não foram capturados em detalhe** (o hover no menu não expandiu o submenu na inspeção). A duração/curva das transições **não foi identificada** como token.
+
+## 11. Conteúdo e tom de voz
+
+Mensagem-mãe: **"Protegendo famílias e construindo um legado."** Vocabulário recorrente: *proteção, família, sonho, legado, planejamento, liberdade, prosperidade, especialistas, segurança*. Estilo das chamadas: aspiracional e de ação imediata ("Comece a mudar sua vida hoje mesmo!", "O seu sonho é a nossa missão!"). Estratégia de persuasão: prova social (números grandes + depoimentos), autoridade (28 anos, especialistas certificados), urgência suave ("o melhor momento é hoje"), e apelo emocional à família.
+
+## 12. Jornada do usuário
+
+Entrada (hero rotativo com 4 ofertas) → apresentação das especialidades → CTA de reunião → prova por números → reforço de credibilidade ("quase 3 décadas") → depoimentos → formulário de contato ("Fale conosco") → rodapé com contatos. Objetivo de conversão duplo: **agendar reunião** (cliente) e **virar franqueado**. A jornada é linear e orientada à conversão, mas o hero com 4 mensagens diferentes dilui o foco.
+
+## 13. Mapa do site
+
+**Navegação principal:** Home · Quem somos (▸ Sobre Nós, Onde Estamos) · Nossos Serviços (▸ Seguro de Vida, Previdência Privada, Seguros de Bens, Planos de Saúde, Consórcio, Cartas Contempladas, Investimentos Nacionais, Investimentos Internacionais, Recuperação Tributária, Crédito, Investidor Protegido Experience) · Contato. **CTAs de header:** Falar com especialista · Seja um franqueado.
+
+**Seções da Home (em ordem):** Hero slider → Especialidades (4 cards) → CTA reunião → Números → Credibilidade → Depoimentos → Formulário "Fale conosco" → Rodapé.
+
+## 14. Pontos fortes
+
+Consistência cromática preto+ouro; símbolo de marca claro e significativo (escudo/coroa/crescimento); prova social robusta; copy emocional bem alinhada ao arquétipo protetor; CTAs abundantes e diretos.
+
+## 15. Inconsistências encontradas
+
+Tipografia mista (Inter × Ubuntu × fonte de heros internos) sem sistema; cor do texto do botão amarelo varia (preto × branco); logo em **JPG** (sem transparência) sobre fundo preto; barra de cotações de cripto destoa do posicionamento premium/familiar; contrastes reprovados (amarelo/branco, cinza claro/branco); hero com múltiplas mensagens concorrentes. **Nada disso deve ser replicado como regra na nova landing.**
+
+## 16. Regras para a nova landing page
+
+**Indispensáveis:** logo (escudo dourado), dupla preto+ouro, tagline "Protegendo famílias e construindo um legado", fotos reais de famílias/profissionais, prova social (números + depoimentos).
+
+**Cores predominantes:** preto `#000` e branco como base; **dourado `#FFD400` como destaque** (botões, números, eyebrows, detalhes) — **usar com moderação, nunca como texto de corpo nem como texto sobre branco**. Cinzas para texto (usar tom mais escuro `#535866`+ para acessibilidade).
+
+**Tipografia recomendada:** padronizar em **uma família** (sugestão: Inter para tudo, ou Ubuntu para títulos + Inter para corpo — escolher e manter). Títulos pesados, corpo regular.
+
+**Imagens:** fotografia real, humana, aspiracional; overlay escuro quando texto por cima. **Ícones:** lineares pretos (Font Awesome-like), espessura consistente. **Botões:** pill (raio ~24–25px), amarelo com **texto preto** (primário) e preto/outline dourado (secundário). **Cards:** cantos ~15px, título dourado sobre fundo claro só se contraste permitir (preferir título escuro + acento dourado). **Fundos:** alternar branco e preto; usar dourado pontualmente. **Espaçamento:** escala de 8px. **Tom dos CTAs:** direto e aspiracional ("Quero proteger minha família", "Falar com especialista").
+
+**Evitar:** logo em JPG, texto amarelo sobre branco, cinza claro em corpo, barra de cotações cripto, múltiplas mensagens no hero.
+
+**Consistência desktop↔mobile:** manter dupla preto+ouro, empilhar cards em coluna única, hamburger, botões full-width no mobile, fontes fluidas.
+
+**Narrativa sugerida:** Abertura (promessa de proteção + legado) → Problema (85% das famílias sem equilíbrio financeiro) → Solução (ecossistema completo num só lugar) → Benefícios → Como funciona (reunião com especialista) → Diferenciais (28 anos, cartas mais baratas) → Provas sociais (números + depoimentos) → Quebra de objeções (transparência, ética) → FAQ → CTA final → Rodapé.
+
+## 17. Design tokens
+
+**Tabela resumo**
+
+| Categoria | Token | Valor |
+|---|---|---|
+| Cor | brand-gold | #FFD400 |
+| Cor | black | #000000 |
+| Cor | white | #FFFFFF |
+| Cor | gray-text | #878B99 |
+| Cor | gray-700 | #535866 |
+| Cor | ink-900 | #16202F |
+| Raio | card | 15px |
+| Raio | button | 25px |
+| Raio | input | 20px |
+| Container | max | 1140px |
+| Tipo | font-base | Inter |
+| Espaço | escala | 8/16/24/32/48/64px (est.) |
+
+**CSS**
+```css
+:root{
+  --color-brand-gold:#FFD400;
+  --color-gold-dark:#F3CD14;      /* estimativa */
+  --color-black:#000000;
+  --color-white:#FFFFFF;
+  --color-text:#535866;           /* recomendado p/ acessibilidade */
+  --color-text-muted:#878B99;
+  --color-ink-900:#16202F;
+  --color-bg-off:#F9F9FB;
+  --color-whatsapp:#25D366;       /* estimativa */
+
+  --font-base:'Inter',sans-serif;
+  --font-alt:'Ubuntu',sans-serif;
+
+  --radius-card:15px;
+  --radius-button:25px;
+  --radius-input:20px;
+
+  --container-max:1140px;
+  --content-max:800px;
+  --block-gap:24px;
+
+  --space-1:8px; --space-2:16px; --space-3:24px;
+  --space-4:32px; --space-5:48px; --space-6:64px;   /* estimativa */
+
+  --shadow-natural:6px 6px 9px rgba(0,0,0,.2);      /* herdado WP, opcional */
+  --breakpoint-mobile:768px;                         /* estimativa */
+  --z-header:1000; --z-float:999;                    /* estimativa */
+}
+```
+
+**JSON**
+```json
+{
+  "color": {
+    "brandGold": "#FFD400", "goldDark": "#F3CD14",
+    "black": "#000000", "white": "#FFFFFF",
+    "text": "#535866", "textMuted": "#878B99",
+    "ink900": "#16202F", "bgOff": "#F9F9FB", "whatsapp": "#25D366"
+  },
+  "font": { "base": "Inter", "alt": "Ubuntu" },
+  "radius": { "card": "15px", "button": "25px", "input": "20px" },
+  "layout": { "containerMax": "1140px", "contentMax": "800px", "blockGap": "24px" },
+  "space": { "1":"8px","2":"16px","3":"24px","4":"32px","5":"48px","6":"64px" },
+  "breakpoint": { "mobile": "768px" },
+  "note": "Valores marcados como estimativa: goldDark, whatsapp, space, breakpoint, z-index."
+}
+```
+
+## 18. Arquivos e ativos encontrados
+
+Logo: `.../uploads/2024/05/logo-menu.jpg` · Favicon/escudo: `.../uploads/2025/09/cropped-logo-escudo-{32x32,180x180,192x192}.jpg` · Depoimentos: `.../uploads/2024/06/{mauro-barros,poliana-medina,rafael}.jpg` · Thumb WebP: `.../elementor/thumbs/investidor-protegido-…webp` · Stack: Hello Elementor + Elementor Pro + GutenKit + MetForm + Swiper + Font Awesome 5.
+
+## 19. Informações que ainda precisam ser fornecidas
+
+Para fechar 100% da análise, preciso de: **(1)** logo em vetor/PNG transparente e eventual manual de marca; **(2)** confirmação do público-alvo e da prioridade entre "cliente" e "franqueado"; **(3)** captura real do **layout mobile/tablet** (não consegui renderizar largura mobile — o viewport permaneceu em ~1150px); **(4)** estados interativos (hover/active/focus/erro/sucesso de botões e formulário) que não expandiram na inspeção; **(5)** conteúdo das páginas de serviço internas (li apenas Home e Quem Somos em profundidade); **(6)** o gradiente exato do dourado do logo.
+
+---
+
+## Checklist de cobertura
+
+| Item | Status |
+|---|---|
+| Inspeção da home (todas as dobras) | ✅ Completo |
+| Página Quem Somos | ✅ Completo |
+| Footer / header / navegação | ✅ Completo |
+| Variáveis CSS, cores computadas, fontes | ✅ Completo |
+| Logo e favicon (arquivos) | ✅ Completo |
+| Paleta + acessibilidade | ✅ Completo |
+| Tipografia | 🟡 Parcial (fonte dos heros internos = estimativa) |
+| Layout/espaçamentos | 🟡 Parcial (escala de 8px = estimativa) |
+| Componentes | ✅ Completo (estados interativos parciais) |
+| Formulário/inputs | ✅ Completo |
+| Botões (todos os estados) | 🟡 Parcial (hover
