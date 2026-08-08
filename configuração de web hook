@@ -1,0 +1,1098 @@
+
+Landing page: reúne os dados, envia ao webhook e dispara os eventos personalizados.
+Google Apps Script: recebe os dados e grava cada candidatura em uma linha do Google Sheets.
+O link do webhook ficará em um único local, no início do código da landing page:
+const FORM_WEBHOOK_URL = "COLE_AQUI_A_URL_DO_WEBHOOK";
+
+1. Preparar a planilha
+Crie uma planilha no Google Sheets e uma aba chamada:
+Candidaturas
+
+O script criará automaticamente os cabeçalhos na primeira execução:
+Coluna
+Informação
+A
+Data do envio
+B
+ID da candidatura
+C
+Nome
+D
+Telefone
+E
+WhatsApp
+F
+Cidade
+G
+Estado
+H
+E-mail
+I
+Idade
+J
+LinkedIn
+K
+Instagram
+L
+Atuação atual
+M
+Outra atuação
+N
+Experiência comercial
+O
+Renda mensal atual
+P
+Maior motivação
+Q
+Possui carteira
+R
+Quantidade de clientes
+S
+Áreas em que trabalhou
+T
+Certificações
+U
+Dedicação semanal
+V
+Veículo próprio
+W
+Possui notebook
+X
+Participará de treinamentos
+Y
+Nota comercial
+Z
+Renda desejada
+AA
+Origem
+AB
+Mídia
+AC
+Campanha
+AD
+Conteúdo
+AE
+Termo
+AF
+Página de origem
+AG
+Status
+
+2. Script do Google Sheets
+Abra a planilha e acesse:
+Extensões → Apps Script
+
+Apague o conteúdo existente do arquivo Code.gs e cole:
+const CONFIG = {
+  SPREADSHEET_ID: "COLE_AQUI_O_ID_DA_PLANILHA",
+  SHEET_NAME: "Candidaturas",
+
+  // Domínio esperado da landing page.
+  // Serve como conferência adicional, não como autenticação absoluta.
+  ALLOWED_PAGE_HOST: "seudominio.com.br",
+
+  HEADERS: [
+    "Data do envio",
+    "ID da candidatura",
+    "Nome",
+    "Telefone",
+    "WhatsApp",
+    "Cidade",
+    "Estado",
+    "E-mail",
+    "Idade",
+    "Atuação atual",
+    "LinkedIn",
+    "Instagram",
+    "Outra atuação",
+    "Experiência comercial",
+    "Renda mensal atual",
+    "Maior motivação",
+    "Possui carteira",
+    "Quantidade de clientes",
+    "Áreas em que trabalhou",
+    "Certificações",
+    "Dedicação semanal",
+    "Veículo próprio",
+    "Possui notebook",
+    "Participará de treinamentos",
+    "Nota comercial",
+    "Renda desejada",
+    "UTM Source",
+    "UTM Medium",
+    "UTM Campaign",
+    "UTM Content",
+    "UTM Term",
+    "Página de origem",
+    "Status"
+  ]
+};
+
+function doGet() {
+  return jsonResponse({
+    success: true,
+    message: "Webhook de candidaturas ativo."
+  });
+}
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+
+  try {
+    lock.waitLock(10000);
+
+    if (!e || !e.postData || !e.postData.contents) {
+      return jsonResponse({
+        success: false,
+        error: "corpo_ausente"
+      });
+    }
+
+    const payload = JSON.parse(e.postData.contents);
+
+    if (payload.website) {
+      return jsonResponse({
+        success: true,
+        ignored: true
+      });
+    }
+
+    const validation = validatePayload(payload);
+
+    if (!validation.valid) {
+      return jsonResponse({
+        success: false,
+        error: "dados_invalidos",
+        fields: validation.fields
+      });
+    }
+
+    const spreadsheet = SpreadsheetApp.openById(
+      CONFIG.SPREADSHEET_ID
+    );
+
+    let sheet = spreadsheet.getSheetByName(
+      CONFIG.SHEET_NAME
+    );
+
+    if (!sheet) {
+      sheet = spreadsheet.insertSheet(
+        CONFIG.SHEET_NAME
+      );
+    }
+
+    ensureHeaders(sheet);
+
+    const applicationId = cleanText(
+      payload.idCandidatura
+    );
+
+    if (applicationExists(sheet, applicationId)) {
+      return jsonResponse({
+        success: true,
+        duplicate: true,
+        applicationId
+      });
+    }
+
+    const row = [
+      new Date(),
+      applicationId,
+      safeCell(payload.nome),
+      safeCell(payload.telefone),
+      safeCell(payload.whatsapp),
+      safeCell(payload.cidade),
+      safeCell(payload.estado),
+      safeCell(payload.email),
+      safeCell(payload.idade),
+      joinValues(payload.atuacaoAtual),
+      safeCell(payload.linkedin),
+      safeCell(payload.instagram),
+      safeCell(payload.outraAtuacao),
+      safeCell(payload.tempoExperiencia),
+      safeCell(payload.rendaMensal),
+      safeCell(payload.maiorMotivacao),
+      safeCell(payload.possuiCarteira),
+      safeCell(payload.quantidadeClientes),
+      joinValues(payload.areasExperiencia),
+      joinValues(payload.certificacoes),
+      safeCell(payload.dedicacaoSemanal),
+      safeCell(payload.veiculoProprio),
+      safeCell(payload.possuiNotebook),
+      safeCell(payload.participaTreinamentos),
+      safeCell(payload.habilidadeComercial),
+      safeCell(payload.rendaDesejada),
+      safeCell(payload.utmSource),
+      safeCell(payload.utmMedium),
+      safeCell(payload.utmCampaign),
+      safeCell(payload.utmContent),
+      safeCell(payload.utmTerm),
+      safeCell(payload.paginaOrigem),
+      "Nova candidatura"
+    ];
+
+    sheet.appendRow(row);
+
+    return jsonResponse({
+      success: true,
+      applicationId,
+      message: "Candidatura registrada."
+    });
+  } catch (error) {
+    console.error(error);
+
+    return jsonResponse({
+      success: false,
+      error: "erro_interno"
+    });
+  } finally {
+    try {
+      lock.releaseLock();
+    } catch (error) {
+      // O bloqueio pode não ter sido adquirido.
+    }
+  }
+}
+
+function validatePayload(payload) {
+  const requiredFields = [
+    "idCandidatura",
+    "nome",
+    "telefone",
+    "whatsapp",
+    "cidade",
+    "estado",
+    "email",
+    "idade",
+    "atuacaoAtual",
+    "tempoExperiencia",
+    "rendaMensal",
+    "maiorMotivacao",
+    "possuiCarteira",
+    "areasExperiencia",
+    "certificacoes",
+    "dedicacaoSemanal",
+    "veiculoProprio",
+    "possuiNotebook",
+    "participaTreinamentos",
+    "habilidadeComercial",
+    "rendaDesejada",
+    "consentimento"
+  ];
+
+  const missingFields = requiredFields.filter(
+    function(field) {
+      const value = payload[field];
+
+      if (Array.isArray(value)) {
+        return value.length === 0;
+      }
+
+      return (
+        value === undefined ||
+        value === null ||
+        String(value).trim() === ""
+      );
+    }
+  );
+
+  if (payload.consentimento !== true) {
+    missingFields.push("consentimento");
+  }
+
+  if (
+    payload.email &&
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      String(payload.email).trim()
+    )
+  ) {
+    missingFields.push("email_invalido");
+  }
+
+  const age = Number(payload.idade);
+
+  if (
+    !Number.isInteger(age) ||
+    age < 16 ||
+    age > 100
+  ) {
+    missingFields.push("idade_invalida");
+  }
+
+  const commercialScore = Number(
+    payload.habilidadeComercial
+  );
+
+  if (
+    !Number.isFinite(commercialScore) ||
+    commercialScore < 0 ||
+    commercialScore > 10
+  ) {
+    missingFields.push(
+      "habilidade_comercial_invalida"
+    );
+  }
+
+  if (
+    payload.possuiCarteira === "Sim" &&
+    !String(
+      payload.quantidadeClientes || ""
+    ).trim()
+  ) {
+    missingFields.push("quantidadeClientes");
+  }
+
+  return {
+    valid: missingFields.length === 0,
+    fields: [...new Set(missingFields)]
+  };
+}
+
+function ensureHeaders(sheet) {
+  if (sheet.getLastRow() > 0) {
+    return;
+  }
+
+  sheet
+    .getRange(1, 1, 1, CONFIG.HEADERS.length)
+    .setValues([CONFIG.HEADERS]);
+
+  sheet.getRange(1, 1, 1, CONFIG.HEADERS.length)
+    .setFontWeight("bold")
+    .setBackground("#D6A638")
+    .setFontColor("#080A0B");
+
+  sheet.setFrozenRows(1);
+}
+
+function applicationExists(sheet, applicationId) {
+  if (!applicationId || sheet.getLastRow() < 2) {
+    return false;
+  }
+
+  const values = sheet
+    .getRange(
+      2,
+      2,
+      sheet.getLastRow() - 1,
+      1
+    )
+    .getDisplayValues()
+    .flat();
+
+  return values.includes(applicationId);
+}
+
+function joinValues(value) {
+  if (!Array.isArray(value)) {
+    return safeCell(value);
+  }
+
+  return safeCell(value.join(" | "));
+}
+
+function cleanText(value) {
+  return String(value ?? "").trim();
+}
+
+function safeCell(value) {
+  const text = cleanText(value);
+
+  /*
+   * Impede que textos enviados pelo formulário
+   * sejam interpretados como fórmulas no Sheets.
+   */
+  if (/^[=+\-@]/.test(text)) {
+    return "'" + text;
+  }
+
+  return text;
+}
+
+function jsonResponse(data) {
+  return ContentService
+    .createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+O Apps Script utiliza doPost(e) para receber requisições e o ContentService para devolver JSON, conforme o modelo de web apps do Google. O LockService impede que duas submissões simultâneas disputem a mesma gravação. Web Apps, LockService.
+Onde encontrar o ID da planilha
+Na URL:
+https://docs.google.com/spreadsheets/d/ID_DA_PLANILHA/edit
+
+Copie apenas a parte entre /d/ e /edit.
+Exemplo:
+SPREADSHEET_ID: "1AbCdeFGhijKLMnOPqRstUVwxyz"
+
+3. Publicar como webhook
+No Apps Script:
+Clique em Implantar.
+Selecione Nova implantação.
+Em “Tipo”, escolha App da Web.
+Em “Executar como”, escolha Eu.
+Em “Quem pode acessar”, selecione Qualquer pessoa.
+Clique em Implantar.
+Autorize o acesso solicitado.
+Copie a URL terminada em /exec.
+Use a URL /exec na landing page. A URL /dev é somente para testes de quem possui acesso ao projeto. Publicação de Web Apps.
+Exemplo:
+https://script.google.com/macros/s/XXXXXXXXXXXX/exec
+
+Sempre que alterar o Apps Script:
+Abra Implantar → Gerenciar implantações;
+Edite a implantação;
+Selecione Nova versão;
+Implante novamente.
+Salvar o código sem atualizar a implantação não atualiza o webhook público.
+4. Nomes dos campos na landing page
+Os campos precisam ter estes atributos name:
+<input name="nome">
+<input name="telefone">
+<input name="whatsapp">
+<input name="cidade">
+<select name="estado"></select>
+<input name="email">
+<input name="idade" type="number">
+<input name="linkedin">
+<input name="instagram">
+
+<input
+  name="atuacaoAtual"
+  type="checkbox"
+  value="Mercado Financeiro"
+>
+
+<input
+  name="atuacaoAtual"
+  type="checkbox"
+  value="Consórcio"
+>
+
+<input name="outraAtuacao">
+
+<input
+  name="tempoExperiencia"
+  type="radio"
+  value="1 a 3 anos"
+>
+
+<input
+  name="rendaMensal"
+  type="radio"
+  value="2 a 5 mil"
+>
+
+<input
+  name="maiorMotivacao"
+  type="radio"
+  value="Crescimento"
+>
+
+<input
+  name="possuiCarteira"
+  type="radio"
+  value="Sim"
+>
+
+<input name="quantidadeClientes">
+
+<input
+  name="areasExperiencia"
+  type="checkbox"
+  value="Consórcio"
+>
+
+<input
+  name="certificacoes"
+  type="checkbox"
+  value="CPA-10"
+>
+
+<input name="dedicacaoSemanal">
+
+<input
+  name="veiculoProprio"
+  type="radio"
+  value="Sim"
+>
+
+<input
+  name="possuiNotebook"
+  type="radio"
+  value="Sim"
+>
+
+<input
+  name="participaTreinamentos"
+  type="radio"
+  value="Sim"
+>
+
+<input
+  name="habilidadeComercial"
+  type="range"
+  min="0"
+  max="10"
+>
+
+<input name="rendaDesejada">
+
+<input
+  name="consentimento"
+  type="checkbox"
+  value="true"
+>
+
+Para cada opção, repita o mesmo name e altere somente o value.
+5. Campo antispam invisível
+Acrescente dentro do formulário:
+<div
+  aria-hidden="true"
+  style="
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  "
+>
+  <label for="website">
+    Não preencha este campo
+  </label>
+
+  <input
+    id="website"
+    name="website"
+    type="text"
+    tabindex="-1"
+    autocomplete="off"
+  >
+</div>
+
+Usuários reais não verão o campo. Muitos robôs o preenchem, permitindo que o webhook ignore a submissão.
+6. Configuração do webhook na landing page
+Deixe este bloco em um arquivo central, como:
+form-config.js
+
+Ou no início do arquivo responsável pelo formulário:
+const FORM_CONFIG = {
+  WEBHOOK_URL:
+    "COLE_AQUI_A_URL_DO_WEBHOOK_DO_GOOGLE",
+
+  FORM_ID:
+    "formulario-qualificacao",
+
+  REQUEST_TIMEOUT:
+    20000
+};
+
+Exemplo preenchido:
+const FORM_CONFIG = {
+  WEBHOOK_URL:
+    "https://script.google.com/macros/s/XXXXXXXX/exec",
+
+  FORM_ID:
+    "formulario-qualificacao",
+
+  REQUEST_TIMEOUT:
+    20000
+};
+
+Esse será o único lugar que precisará ser alterado quando o webhook mudar.
+7. Captura das UTMs
+function captureCampaignData() {
+  const params = new URLSearchParams(
+    window.location.search
+  );
+
+  const campaign = {
+    utmSource: params.get("utm_source") || "",
+    utmMedium: params.get("utm_medium") || "",
+    utmCampaign: params.get("utm_campaign") || "",
+    utmContent: params.get("utm_content") || "",
+    utmTerm: params.get("utm_term") || ""
+  };
+
+  const hasCampaign = Object.values(
+    campaign
+  ).some(Boolean);
+
+  if (hasCampaign) {
+    sessionStorage.setItem(
+      "recrutamento_campaign",
+      JSON.stringify(campaign)
+    );
+
+    return campaign;
+  }
+
+  try {
+    return JSON.parse(
+      sessionStorage.getItem(
+        "recrutamento_campaign"
+      )
+    ) || campaign;
+  } catch {
+    return campaign;
+  }
+}
+
+8. Montagem dos dados do formulário
+function createApplicationId() {
+  if (window.crypto?.randomUUID) {
+    return window.crypto.randomUUID();
+  }
+
+  return [
+    "app",
+    Date.now(),
+    Math.random().toString(36).slice(2)
+  ].join("-");
+}
+
+function getCheckedValues(form, fieldName) {
+  return Array.from(
+    form.querySelectorAll(
+      `[name="${fieldName}"]:checked`
+    )
+  ).map((input) => input.value);
+}
+
+function getSelectedValue(form, fieldName) {
+  const field = form.querySelector(
+    `[name="${fieldName}"]:checked`
+  );
+
+  return field ? field.value : "";
+}
+
+function getFieldValue(form, fieldName) {
+  const field = form.elements.namedItem(
+    fieldName
+  );
+
+  if (!field) {
+    return "";
+  }
+
+  return String(field.value || "").trim();
+}
+
+function buildApplicationPayload(form) {
+  const campaign = captureCampaignData();
+
+  return {
+    idCandidatura: createApplicationId(),
+
+    nome: getFieldValue(form, "nome"),
+    telefone: getFieldValue(form, "telefone"),
+    whatsapp: getFieldValue(form, "whatsapp"),
+    cidade: getFieldValue(form, "cidade"),
+    estado: getFieldValue(form, "estado"),
+    email: getFieldValue(form, "email"),
+    idade: getFieldValue(form, "idade"),
+    linkedin: getFieldValue(form, "linkedin"),
+    instagram: getFieldValue(form, "instagram"),
+
+    atuacaoAtual: getCheckedValues(
+      form,
+      "atuacaoAtual"
+    ),
+
+    outraAtuacao: getFieldValue(
+      form,
+      "outraAtuacao"
+    ),
+
+    tempoExperiencia: getSelectedValue(
+      form,
+      "tempoExperiencia"
+    ),
+
+    rendaMensal: getSelectedValue(
+      form,
+      "rendaMensal"
+    ),
+
+    maiorMotivacao: getSelectedValue(
+      form,
+      "maiorMotivacao"
+    ),
+
+    possuiCarteira: getSelectedValue(
+      form,
+      "possuiCarteira"
+    ),
+
+    quantidadeClientes: getFieldValue(
+      form,
+      "quantidadeClientes"
+    ),
+
+    areasExperiencia: getCheckedValues(
+      form,
+      "areasExperiencia"
+    ),
+
+    certificacoes: getCheckedValues(
+      form,
+      "certificacoes"
+    ),
+
+    dedicacaoSemanal: getFieldValue(
+      form,
+      "dedicacaoSemanal"
+    ),
+
+    veiculoProprio: getSelectedValue(
+      form,
+      "veiculoProprio"
+    ),
+
+    possuiNotebook: getSelectedValue(
+      form,
+      "possuiNotebook"
+    ),
+
+    participaTreinamentos: getSelectedValue(
+      form,
+      "participaTreinamentos"
+    ),
+
+    habilidadeComercial: getFieldValue(
+      form,
+      "habilidadeComercial"
+    ),
+
+    rendaDesejada: getFieldValue(
+      form,
+      "rendaDesejada"
+    ),
+
+    consentimento:
+      form.elements.namedItem(
+        "consentimento"
+      )?.checked === true,
+
+    website: getFieldValue(form, "website"),
+
+    ...campaign,
+
+    paginaOrigem: [
+      window.location.origin,
+      window.location.pathname
+    ].join("")
+  };
+}
+
+9. Script de envio da landing page
+async function sendApplication(payload) {
+  if (
+    !FORM_CONFIG.WEBHOOK_URL ||
+    FORM_CONFIG.WEBHOOK_URL.includes(
+      "COLE_AQUI"
+    )
+  ) {
+    throw new Error(
+      "webhook_nao_configurado"
+    );
+  }
+
+  const controller = new AbortController();
+
+  const timeout = window.setTimeout(
+    () => controller.abort(),
+    FORM_CONFIG.REQUEST_TIMEOUT
+  );
+
+  try {
+    const response = await fetch(
+      FORM_CONFIG.WEBHOOK_URL,
+      {
+        method: "POST",
+
+        /*
+         * text/plain evita uma requisição preliminar
+         * desnecessária e o Apps Script interpreta o
+         * conteúdo como JSON normalmente.
+         */
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify(payload),
+        redirect: "follow",
+        signal: controller.signal
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `webhook_http_${response.status}`
+      );
+    }
+
+    const result = await response.json();
+
+    if (!result.success) {
+      const error = new Error(
+        result.error || "webhook_rejeitou"
+      );
+
+      error.details = result;
+      throw error;
+    }
+
+    return result;
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
+10. Integração com o botão final
+const qualificationForm = document.getElementById(
+  FORM_CONFIG.FORM_ID
+);
+
+qualificationForm.addEventListener(
+  "submit",
+  async function(event) {
+    event.preventDefault();
+
+    const submitButton =
+      qualificationForm.querySelector(
+        '[type="submit"]'
+      );
+
+    if (submitButton.disabled) {
+      return;
+    }
+
+    /*
+     * Executa a validação final do formulário.
+     */
+    if (!qualificationForm.checkValidity()) {
+      qualificationForm.reportValidity();
+
+      window.dataLayer =
+        window.dataLayer || [];
+
+      window.dataLayer.push({
+        event:
+          "recrutamento_erro_validacao",
+
+        nome_etapa:
+          "revisao_consentimento",
+
+        tipo_erro:
+          "validacao_final_reprovada"
+      });
+
+      return;
+    }
+
+    const payload = buildApplicationPayload(
+      qualificationForm
+    );
+
+    submitButton.disabled = true;
+    submitButton.dataset.originalText =
+      submitButton.textContent;
+    submitButton.textContent = "Enviando...";
+
+    window.dataLayer =
+      window.dataLayer || [];
+
+    window.dataLayer.push({
+      event:
+        "recrutamento_envio_iniciado",
+
+      formulario:
+        "qualificacao_consultor_comercial"
+    });
+
+    window.dataLayer.push({
+      event:
+        "recrutamento_validacao_aprovada",
+
+      formulario:
+        "qualificacao_consultor_comercial"
+    });
+
+    try {
+      window.dataLayer.push({
+        event:
+          "recrutamento_requisicao_enviada",
+
+        id_evento:
+          payload.idCandidatura
+      });
+
+      const result = await sendApplication(
+        payload
+      );
+
+      /*
+       * A conversão só é enviada depois que
+       * o Google Sheets confirma a gravação.
+       */
+      window.dataLayer.push({
+        event:
+          "recrutamento_lead_enviado",
+
+        id_evento:
+          result.applicationId,
+
+        tipo_lead:
+          "candidatura_consultor_comercial"
+      });
+
+      qualificationForm.reset();
+
+      localStorage.removeItem(
+        "recrutamento_form_rascunho"
+      );
+
+      showSuccessScreen();
+
+      window.dataLayer.push({
+        event:
+          "recrutamento_sucesso_visualizado",
+
+        id_evento:
+          result.applicationId
+      });
+    } catch (error) {
+      const errorType =
+        error.name === "AbortError"
+          ? "tempo_esgotado"
+          : error.message;
+
+      window.dataLayer.push({
+        event:
+          "recrutamento_erro_envio",
+
+        tipo_erro:
+          errorType
+      });
+
+      showSubmissionError(
+        "Não foi possível enviar agora. Verifique sua conexão e tente novamente."
+      );
+
+      submitButton.disabled = false;
+      submitButton.textContent =
+        submitButton.dataset.originalText ||
+        "Enviar minha qualificação";
+    }
+  }
+);
+
+11. Funções das telas finais
+Adapte os seletores aos elementos já existentes na LP:
+function showSuccessScreen() {
+  const formContainer =
+    document.querySelector(
+      "[data-form-container]"
+    );
+
+  const successScreen =
+    document.querySelector(
+      "[data-form-success]"
+    );
+
+  if (formContainer) {
+    formContainer.hidden = true;
+  }
+
+  if (successScreen) {
+    successScreen.hidden = false;
+    successScreen.focus();
+    successScreen.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
+
+function showSubmissionError(message) {
+  const errorContainer =
+    document.querySelector(
+      "[data-form-submit-error]"
+    );
+
+  if (!errorContainer) {
+    return;
+  }
+
+  errorContainer.textContent = message;
+  errorContainer.hidden = false;
+  errorContainer.focus();
+}
+
+HTML correspondente:
+<div data-form-container>
+  <form id="formulario-qualificacao">
+    <!-- Etapas do formulário -->
+
+    <div
+      data-form-submit-error
+      role="alert"
+      tabindex="-1"
+      hidden
+    ></div>
+
+    <button
+      type="submit"
+      data-submit-form
+    >
+      Enviar minha qualificação
+    </button>
+  </form>
+</div>
+
+<section
+  data-form-success
+  tabindex="-1"
+  hidden
+>
+  <h2>Candidatura enviada com sucesso!</h2>
+
+  <p>
+    Recebemos suas informações. Caso seu perfil
+    avance no processo, a empresa poderá entrar
+    em contato pelos canais informados.
+  </p>
+
+  <p>Planeje hoje. Conquiste amanhã.</p>
+</section>
+
+12. Fluxo final
+flowchart TD
+    A["Candidato preenche"] --> B["Validação final"]
+    B -->|Inválido| C["Exibe os erros"]
+    B -->|Válido| D["POST no webhook"]
+    D --> E["Apps Script valida"]
+    E -->|Rejeitado| F["Erro de envio"]
+    E -->|Aprovado| G["Grava no Google Sheets"]
+    G --> H["Retorna success"]
+    H --> I["Dispara lead enviado"]
+    I --> J["Exibe tela de sucesso"]
+
+Testes obrigatórios
+Antes de publicar, testar:
+Envio válido gera exatamente uma linha;
+Clique duplo não gera duas linhas;
+E-mail inválido não é aceito;
+Carteira “Sim” exige quantidade;
+Consentimento não marcado impede envio;
+Campos de múltipla escolha chegam separados por |;
+UTMs chegam corretamente;
+Falha de internet mantém o formulário preenchido;
+recrutamento_lead_enviado ocorre somente após a gravação;
+Nenhum dado pessoal é enviado no dataLayer;
+Atualizar a tela de sucesso não cria outra candidatura;
+A planilha não interpreta dados do candidato como fórmulas.
+
+

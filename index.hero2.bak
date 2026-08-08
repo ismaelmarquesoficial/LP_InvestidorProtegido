@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investidor Protegido — Consultor Comercial</title>
+    <meta name="description" content="Oportunidade de carreira como Consultor Comercial no mercado financeiro e consórcios.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD400;
+            --gold-soft: rgba(255,212,0,0.08);
+            --gold-mid: rgba(255,212,0,0.15);
+            --gold-line: rgba(255,212,0,0.25);
+            --black: #050505;
+            --black-soft: #0a0a0a;
+            --black-elevated: #0f0f0f;
+            --black-card: #111111;
+            --white: #FFFFFF;
+            --white-warm: #F5F3EF;
+            --white-muted: rgba(255,255,255,0.55);
+            --white-dim: rgba(255,255,255,0.35);
+            --ink: #1a1a1a;
+            --ink-muted: #555555;
+            --ink-dim: #888888;
+            --border-light: rgba(0,0,0,0.08);
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-serif: 'Cinzel', serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--gold); color: var(--black); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+        /* Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+        .reveal-delay-3 { transition-delay: 0.36s; }
+        .reveal-delay-4 { transition-delay: 0.48s; }
+        .reveal-delay-5 { transition-delay: 0.6s; }
+
+        .line-reveal {
+            width: 0;
+            height: 1px;
+            background: var(--gold-line);
+            transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .line-reveal.visible { width: 80px; }
+        .line-reveal.center { margin: 0 auto; }
+        .line-reveal.wide.visible { width: 120px; }
+
+        /* Typography */
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .display-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 0.88;
+            letter-spacing: 0.02em;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .display-h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .display-h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+            line-height: 1.1;
+            letter-spacing: 0.04em;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .serif-quote {
+            font-family: var(--font-serif);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .body-text {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--white-muted);
+            font-weight: 400;
+        }
+
+        .body-text-sm {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--white-dim);
+            font-weight: 400;
+        }
+
+        .gold-accent { color: var(--gold); }
+
+        /* Light section overrides */
+        .section-light {
+            background: var(--white-warm);
+            color: var(--ink);
+        }
+        .section-light .display-h2,
+        .section-light .display-h3 { color: var(--ink); }
+        .section-light .body-text { color: var(--ink-muted); }
+        .section-light .body-text-sm { color: var(--ink-dim); }
+        .section-light .line-reveal { background: var(--gold); opacity: 0.4; }
+        .section-light .card-premium {
+            background: var(--white);
+            border-color: var(--border-light);
+        }
+        .section-light .card-premium:hover {
+            background: var(--white);
+            border-color: rgba(0,0,0,0.12);
+        }
+        .section-light .card-premium-text { color: var(--ink-muted); }
+        .section-light .segment-item {
+            background: var(--white);
+            border-color: var(--border-light);
+        }
+        .section-light .segment-item:hover {
+            border-color: rgba(0,0,0,0.15);
+            background: var(--white);
+        }
+        .section-light .segment-title { color: var(--ink); }
+        .section-light .segment-desc { color: var(--ink-dim); }
+        .section-light .journey-dot {
+            background: var(--white-warm);
+            border-color: rgba(0,0,0,0.2);
+        }
+        .section-light .journey-node:hover .journey-dot {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .section-light .journey-track::before {
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+        }
+        .section-light .journey-title { color: var(--ink); }
+        .section-light .journey-desc { color: var(--ink-dim); }
+        .section-light .highlight-cell {
+            background: var(--white);
+            border-color: var(--border-light);
+        }
+        .section-light .highlight-cell:hover { background: #fafafa; }
+        .section-light .highlight-label { color: var(--ink-muted); }
+        .section-light .form-frame {
+            background: var(--white);
+            border-color: var(--border-light);
+        }
+        .section-light .form-frame::before { background: var(--gold); opacity: 0.3; }
+        .section-light .form-input {
+            color: var(--ink);
+            border-bottom-color: rgba(0,0,0,0.1);
+        }
+        .section-light .form-input::placeholder { color: var(--ink-dim); }
+        .section-light .form-input:focus { border-bottom-color: var(--gold); }
+        .section-light .form-group label { color: var(--ink-muted); }
+        .section-light .form-option span { color: var(--ink-muted); }
+        .section-light .form-file {
+            border-color: rgba(0,0,0,0.1);
+            background: var(--white-warm);
+        }
+        .section-light .form-file:hover {
+            border-color: rgba(0,0,0,0.2);
+            background: #f0eeea;
+        }
+        .section-light .form-file-text { color: var(--ink-dim); }
+        .section-light .form-privacy {
+            border-top-color: var(--border-light);
+        }
+        .section-light .form-privacy label { color: var(--ink-dim); }
+        .section-light .btn-outline {
+            border-color: rgba(0,0,0,0.15);
+            color: var(--ink);
+        }
+        .section-light .btn-outline:hover {
+            border-color: var(--gold);
+            background: var(--gold-soft);
+            color: var(--ink);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.125rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--white);
+            transform: translateX(-101%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary:hover::before { transform: translateX(0); }
+        .btn-primary span { position: relative; z-index: 1; }
+        .btn-primary:hover { box-shadow: 0 8px 40px rgba(255,212,0,0.2); }
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold-line);
+        }
+        .btn-outline:hover {
+            border-color: var(--gold);
+            background: var(--gold-soft);
+        }
+        .btn-arrow::after {
+            content: '→';
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        .btn-arrow:hover::after { transform: translateX(4px); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .header.scrolled {
+            background: rgba(5,5,5,0.92);
+            backdrop-filter: blur(30px) saturate(1.2);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,212,0,0.06);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            text-decoration: none;
+        }
+        .logo-mark { width: 32px; height: 40px; }
+        .logo-mark svg { width: 100%; height: 100%; }
+        .logo-wordmark {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            line-height: 1;
+        }
+        .logo-wordmark span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+        }
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .nav-desktop a {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+            text-decoration: none;
+            transition: color 0.4s;
+            position: relative;
+        }
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-desktop a:hover { color: var(--white); }
+        .nav-desktop a:hover::after { width: 100%; }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav a {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .mobile-nav a.gold { color: var(--gold); }
+        .mobile-nav .close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: var(--white); font-size: 2rem; cursor: pointer; }
+
+        /* Hero — composição da V2 sobre a imagem e a geometria reta da V1 */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 6.5rem 0 3.5rem;
+        }
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-media img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: 72% center;
+            filter: brightness(0.42) contrast(1.12) saturate(0.9);
+            transform: scale(1.02);
+            animation: heroZoom 24s ease-in-out infinite alternate;
+        }
+        @keyframes heroZoom {
+            from { transform: scale(1.02); }
+            to { transform: scale(1.05); }
+        }
+        /* Scrim direcional: firma o contraste sob o texto e deixa a foto respirar à direita */
+        .hero-scrim {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(90deg, #050505 0%, rgba(5,5,5,0.93) 32%, rgba(5,5,5,0.58) 60%, rgba(5,5,5,0.20) 100%),
+                radial-gradient(58% 50% at 78% 42%, rgba(213,150,71,0.16), transparent 70%);
+        }
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.15) 20%, rgba(5,5,5,0.25) 62%, rgba(5,5,5,0.97) 100%);
+        }
+        .hero-graphic {
+            position: absolute;
+            left: -40px; bottom: 0;
+            z-index: 2;
+            width: 420px; height: 300px;
+            opacity: 0.07;
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: minmax(0, 760px) minmax(0, 1fr);
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .hero-col-media { min-height: 400px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            border: 1px solid rgba(255,212,0,0.45);
+            border-radius: 0;
+            padding: 0.5rem 0.875rem;
+            margin-bottom: 1.625rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .hero-badge-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+            line-height: 0.94;
+            letter-spacing: 0.01em;
+            color: var(--white);
+            margin-bottom: 0.625rem;
+        }
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            line-height: 1.15;
+            letter-spacing: 0.06em;
+            color: var(--gold);
+            margin-bottom: 1.375rem;
+        }
+        .hero-desc {
+            font-size: 1.0625rem;
+            line-height: 1.65;
+            color: #C9CCD1;
+            max-width: 520px;
+            margin-bottom: 1.625rem;
+        }
+        .hero-support {
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--white-muted);
+            max-width: 400px;
+            margin: 0.75rem 0 1.25rem;
+        }
+        .hero-signature {
+            border-top: 1px solid rgba(255,212,0,0.2);
+            padding-top: 1rem;
+            max-width: 440px;
+        }
+        .hero-motto {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            color: var(--white-warm);
+            margin-bottom: 0.625rem;
+        }
+        .hero-meta {
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            color: var(--white-muted);
+        }
+
+        /* Section spacing */
+        .section { padding: 6rem 0; position: relative; }
+        .section-compact { padding: 4rem 0; }
+
+        /* Editorial layouts */
+        .editorial-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        .editorial-split.reverse { direction: rtl; }
+        .editorial-split.reverse > * { direction: ltr; }
+        .editorial-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .editorial-image::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border: 1px solid var(--gold-line);
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+        .editorial-image:hover::before { opacity: 1; }
+        .editorial-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            filter: brightness(0.6) contrast(1.1) saturate(0.85);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+        }
+        .editorial-image:hover img {
+            transform: scale(1.04);
+            filter: brightness(0.7) contrast(1.15) saturate(0.9);
+        }
+        .editorial-text { padding: 2rem 0; }
+
+        /* Cards premium */
+        .cards-premium {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .card-premium {
+            background: var(--black-card);
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+        .card-premium:hover {
+            border-color: var(--gold-line);
+            background: var(--black-elevated);
+            transform: translateY(-4px);
+        }
+        .card-premium:hover::before { opacity: 1; }
+        .card-premium-icon {
+            width: 40px; height: 40px;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            opacity: 0.7;
+            transition: opacity 0.4s;
+        }
+        .card-premium:hover .card-premium-icon { opacity: 1; }
+        .card-premium-icon svg { width: 100%; height: 100%; }
+        .card-premium-text {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--white-muted);
+            letter-spacing: 0.02em;
+        }
+        .card-premium-text em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        /* Pillars */
+        .pillars-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .pillar-item {
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: background 0.6s;
+        }
+        .pillar-item:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .pillar-item:hover {
+            background: var(--gold-soft);
+        }
+        .pillar-num {
+            font-family: var(--font-serif);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .pillar-title {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .pillar-desc {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: var(--white-dim);
+        }
+
+        /* Profile highlights grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+            margin-top: 3rem;
+        }
+        .highlight-cell {
+            background: var(--black);
+            padding: 2rem;
+            transition: background 0.4s;
+        }
+        .highlight-cell:hover { background: var(--black-elevated); }
+        .highlight-icon {
+            width: 24px; height: 24px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+        .highlight-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+        }
+
+        /* Segments */
+        .segments-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .segment-item {
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255,255,255,0.04);
+            position: relative;
+            transition: all 0.5s;
+        }
+        .segment-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--gold);
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .segment-item:hover {
+            border-color: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.01);
+        }
+        .segment-item:hover::after { width: 100%; }
+        .segment-icon {
+            width: 32px; height: 32px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+        .segment-item:hover .segment-icon { opacity: 1; }
+        .segment-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .segment-desc {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: var(--white-dim);
+        }
+
+        /* Journey */
+        .journey-track {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+        .journey-track::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+        }
+        .journey-node {
+            flex: 1;
+            max-width: 280px;
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .journey-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--black);
+            border: 1px solid var(--gold-line);
+            margin: 0 auto 2rem;
+            position: relative;
+            transition: all 0.4s;
+        }
+        .journey-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-line);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .journey-node:hover .journey-dot {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .journey-node:hover .journey-dot::after { opacity: 1; }
+        .journey-title {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .journey-desc {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: var(--white-dim);
+        }
+
+        /* Form */
+        .form-section {
+            background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+            position: relative;
+        }
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 1px; height: 100px;
+            background: linear-gradient(180deg, transparent, var(--gold-line));
+        }
+        .form-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .form-frame {
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2.5rem;
+            position: relative;
+        }
+        .form-frame::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 3rem; right: 3rem;
+            height: 1px;
+            background: var(--gold-line);
+        }
+        .form-group { margin-bottom: 2rem; }
+        .form-group label {
+            display: block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+            margin-bottom: 0.75rem;
+        }
+        .form-group label .req { color: var(--gold); }
+        .form-input {
+            width: 100%;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            transition: border-color 0.4s;
+            outline: none;
+        }
+        .form-input:focus { border-bottom-color: var(--gold); }
+        .form-input::placeholder {
+            color: var(--white-dim);
+            font-weight: 300;
+        }
+        textarea.form-input {
+            min-height: 100px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .form-options {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+        .form-option {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            cursor: pointer;
+        }
+        .form-option input {
+            width: 16px; height: 16px;
+            accent-color: var(--gold);
+            cursor: pointer;
+        }
+        .form-option span {
+            font-size: 0.8125rem;
+            color: var(--white-muted);
+        }
+        .form-file {
+            position: relative;
+            padding: 1.25rem;
+            border: 1px dashed rgba(255,255,255,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .form-file:hover {
+            border-color: var(--gold-line);
+            background: var(--gold-soft);
+        }
+        .form-file input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .form-file-text {
+            font-size: 0.8125rem;
+            color: var(--white-dim);
+        }
+        .form-file-text em {
+            color: var(--gold);
+            font-style: normal;
+        }
+        .form-privacy {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin-top: 2rem;
+        }
+        .form-privacy input {
+            margin-top: 0.25rem;
+            accent-color: var(--gold);
+        }
+        .form-privacy label {
+            font-size: 0.75rem;
+            line-height: 1.7;
+            color: var(--white-dim);
+        }
+        .form-privacy a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .form-privacy a:hover { border-bottom-color: var(--gold); }
+        .form-submit {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1.25rem;
+            font-size: 0.75rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta-media {
+            position: absolute;
+            inset: 0;
+        }
+        .final-cta-media img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.2) contrast(1.1);
+        }
+        .final-cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0.85) 100%);
+        }
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 5rem 0 2.5rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        .footer-brand .logo-wordmark { font-size: 1.125rem; }
+        .footer-brand .logo-wordmark span { font-size: 0.4375rem; }
+        .footer-tagline {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: var(--white-dim);
+            margin-top: 1.25rem;
+            max-width: 280px;
+        }
+        .footer-title {
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.875rem; }
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: var(--white-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-copy {
+            font-size: 0.6875rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.05em;
+        }
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .footer-social a {
+            width: 36px; height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--white-dim);
+            text-decoration: none;
+            transition: all 0.4s;
+        }
+        .footer-social a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cards-premium { grid-template-columns: repeat(3, 1fr); }
+            .pillars-row { grid-template-columns: 1fr; }
+            .pillar-item:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .editorial-split { gap: 3rem; }
+            .segments-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-inner { grid-template-columns: 1fr; gap: 0; }
+            .hero-col-media { display: none; }
+            .hero-scrim {
+                background:
+                    linear-gradient(180deg, rgba(5,5,5,0.78) 0%, rgba(5,5,5,0.86) 55%, rgba(5,5,5,0.95) 100%),
+                    radial-gradient(70% 40% at 72% 18%, rgba(213,150,71,0.14), transparent 70%);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .mobile-toggle { display: block; }
+            .editorial-split { grid-template-columns: 1fr; }
+            .editorial-split.reverse { direction: ltr; }
+            .cards-premium { grid-template-columns: 1fr; }
+            .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+            .journey-track { flex-direction: column; gap: 3rem; }
+            .journey-track::before { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-frame { padding: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .section { padding: 3.5rem 0; }
+            .hero { padding: 8rem 0 4rem; }
+            .hero-graphic { width: 280px; height: 200px; left: -30px; }
+            .hero-desc, .hero-support, .hero-signature { max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .display-h1 { font-size: 2.25rem; }
+            .display-h2 { font-size: 1.625rem; }
+            .hero-title { font-size: 2.25rem; }
+            .container { padding: 0 1.25rem; }
+        }
+
+        /* ===== Formulário multietapas (qualificação) ===== */
+        .wz-screen { display: none; }
+        .wz-screen.active { display: block; }
+
+        .wz-intro-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .wz-intro-sub {
+            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+        }
+        .wz-intro-desc { font-size: 0.9375rem; color: var(--white-muted); margin-bottom: 2.5rem; }
+
+        /* Progresso */
+        .wz-progress { margin-bottom: 3rem; }
+        .wz-progress-head {
+            display: flex; justify-content: space-between; align-items: baseline;
+            gap: 1rem; margin-bottom: 0.875rem;
+        }
+        .wz-progress-label {
+            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--white-muted);
+        }
+        .wz-progress-label b { color: var(--gold); font-weight: 600; }
+        .wz-progress-pct {
+            font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--white-dim);
+            font-variant-numeric: tabular-nums;
+        }
+        .wz-progress-track { height: 2px; background: rgba(255,255,255,0.08); overflow: hidden; }
+        .wz-progress-fill {
+            height: 100%; width: 0; background: var(--gold);
+            transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Etapas */
+        .wz-step { display: none; }
+        .wz-step.active { display: block; }
+        .wz-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+            line-height: 1.1; letter-spacing: 0.02em;
+            color: var(--white); margin-bottom: 2.5rem;
+        }
+        .wz-q {
+            display: block; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--white-muted); margin-bottom: 1rem;
+        }
+        .wz-q .req { color: var(--gold); }
+        .wz-hint {
+            font-size: 0.8125rem; color: var(--white-dim);
+            margin: -0.5rem 0 1.25rem; line-height: 1.6;
+        }
+
+        /* Opções em pílula (substitui radio/checkbox nativos) */
+        .opt-grid { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 2rem; }
+        .opt-grid.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+        .opt { position: relative; cursor: pointer; }
+        .opt input {
+            position: absolute; opacity: 0; width: 1px; height: 1px;
+            margin: 0; pointer-events: none;
+        }
+        .opt-face {
+            display: block; padding: 0.875rem 1.25rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.8125rem; color: var(--white-muted);
+            transition: border-color 0.25s, color 0.25s, background 0.25s;
+            user-select: none;
+        }
+        .opt:hover .opt-face { border-color: var(--gold-line); color: var(--white); }
+        .opt input:checked + .opt-face {
+            border-color: var(--gold); color: var(--white);
+            background: var(--gold-soft); font-weight: 500;
+        }
+        .opt input:focus-visible + .opt-face {
+            outline: 2px solid var(--gold); outline-offset: 2px;
+        }
+
+        /* Checkbox em linha (consentimento / telefone=whatsapp) */
+        .wz-check {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            cursor: pointer; margin-bottom: 2rem;
+        }
+        .wz-check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .wz-check-box {
+            flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px;
+            border: 1px solid rgba(255,255,255,0.25);
+            position: relative; transition: all 0.25s;
+        }
+        .wz-check input:checked + .wz-check-box {
+            background: var(--gold); border-color: var(--gold);
+        }
+        .wz-check input:checked + .wz-check-box::after {
+            content: ''; position: absolute;
+            left: 5px; top: 1px; width: 5px; height: 10px;
+            border: solid var(--black); border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .wz-check input:focus-visible + .wz-check-box {
+            outline: 2px solid var(--gold); outline-offset: 2px;
+        }
+        .wz-check-text { font-size: 0.8125rem; color: var(--white-muted); line-height: 1.6; }
+        .wz-check-text a { color: var(--gold); text-decoration: underline; }
+
+        /* Select nativo estilizado */
+        select.form-input {
+            appearance: none; -webkit-appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, rgba(255,255,255,.45) 50%),
+                              linear-gradient(135deg, rgba(255,255,255,.45) 50%, transparent 50%);
+            background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            padding-right: 2rem; cursor: pointer;
+        }
+        select.form-input option { background: var(--black-card); color: var(--white); }
+
+        /* Escala 0–10 */
+        .scale-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+        .scale-opt { position: relative; cursor: pointer; flex: 1 1 52px; }
+        .scale-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .scale-face {
+            display: flex; align-items: center; justify-content: center;
+            height: 52px; border: 1px solid rgba(255,255,255,0.12);
+            font-family: var(--font-display); font-size: 1.25rem;
+            color: var(--white-muted); transition: all 0.25s;
+            font-variant-numeric: tabular-nums;
+        }
+        .scale-opt:hover .scale-face { border-color: var(--gold-line); color: var(--white); }
+        .scale-opt input:checked + .scale-face {
+            background: var(--gold); border-color: var(--gold); color: var(--black);
+        }
+        .scale-opt input:focus-visible + .scale-face {
+            outline: 2px solid var(--gold); outline-offset: 2px;
+        }
+        .scale-legend {
+            display: flex; justify-content: space-between; gap: 1rem;
+            font-size: 0.6875rem; color: var(--white-dim); margin-bottom: 2rem;
+        }
+        .scale-legend span:nth-child(2) { text-align: center; }
+        .scale-legend span:last-child { text-align: right; }
+
+        /* Condicionais */
+        .wz-cond { display: none; }
+        .wz-cond.open { display: block; }
+
+        /* Erros */
+        .wz-error {
+            display: none; align-items: center; gap: 0.5rem;
+            font-size: 0.8125rem; color: #FF8A7A;
+            margin: -1.25rem 0 1.5rem;
+        }
+        .wz-error.show { display: flex; }
+        .wz-invalid .opt-face,
+        .form-input.wz-invalid { border-color: #FF8A7A; }
+
+        /* Navegação */
+        .wz-nav {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+            padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .wz-nav .btn { flex: 1 1 auto; justify-content: center; }
+        .btn-ghost {
+            background: transparent; border: 1px solid rgba(255,255,255,0.15);
+            color: var(--white-muted); flex: 0 1 auto !important;
+        }
+        .btn-ghost:hover { border-color: var(--gold-line); color: var(--white); }
+        .btn[disabled] { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+
+        /* Revisão */
+        .review-block {
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
+        }
+        .review-head {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 1rem; margin-bottom: 0.875rem;
+        }
+        .review-head h4 {
+            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--gold);
+        }
+        .review-edit {
+            background: none; border: none; cursor: pointer;
+            font-family: var(--font-body); font-size: 0.6875rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--white-dim); border-bottom: 1px solid transparent;
+            transition: color 0.25s, border-color 0.25s; padding: 0 0 2px;
+        }
+        .review-edit:hover { color: var(--gold); border-bottom-color: var(--gold); }
+        .review-edit:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+        .review-dl { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.25rem; }
+        .review-dl dt {
+            font-size: 0.75rem; color: var(--white-dim); white-space: nowrap;
+        }
+        .review-dl dd { font-size: 0.8125rem; color: var(--white); }
+        .review-dl dd.empty { color: var(--white-dim); font-style: italic; }
+
+        /* Confirmação */
+        .wz-done { text-align: center; padding: 1rem 0; }
+        .wz-done-mark {
+            width: 56px; height: 56px; margin: 0 auto 2rem;
+            border: 1px solid var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--gold);
+        }
+        .wz-done-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.375rem, 2.6vw, 1.75rem); line-height: 1.1;
+            color: var(--white); margin-bottom: 1rem;
+        }
+        .wz-done-desc {
+            font-size: 0.9375rem; color: var(--white-muted);
+            max-width: 46ch; margin: 0 auto 2rem;
+        }
+        .wz-done-inst {
+            font-family: var(--font-serif); font-size: 0.9375rem;
+            letter-spacing: 0.08em; color: var(--gold); margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-frame { padding: 2rem 1.25rem; }
+            .opt-grid.cols { grid-template-columns: 1fr; }
+            .wz-nav { flex-direction: column-reverse; }
+            .wz-nav .btn { width: 100%; }
+            .scale-opt { flex: 1 1 40px; }
+            .scale-face { height: 44px; font-size: 1rem; }
+            .review-dl { grid-template-columns: 1fr; gap: 0.15rem; }
+            .review-dl dd { margin-bottom: 0.6rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .wz-progress-fill { transition: none; }
+        }
+
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 40 48" fill="none">
+                        <path d="M20 2L4 10V22C4 33.5 20 46 20 46C20 46 36 33.5 36 22V10L20 2Z" fill="#FFD400" stroke="#FFD400" stroke-width="1"/>
+                        <path d="M20 8L10 13V21C10 28.5 20 38 20 38C20 38 30 28.5 30 21V13L20 8Z" fill="#050505"/>
+                        <rect x="16" y="16" width="8" height="12" rx="1" fill="#FFD400"/>
+                    </svg>
+                </div>
+                <div class="logo-wordmark">
+                    INVESTIDOR PROTEGIDO
+                    <span>SOLUÇÕES FINANCEIRAS</span>
+                </div>
+            </a>
+            <nav class="nav-desktop">
+                <a href="#oportunidade">A oportunidade</a>
+                <a href="#perfil">Perfil valorizado</a>
+                <a href="#sobre">Sobre a empresa</a>
+                <a href="#formulario" class="btn btn-outline">Quero me candidatar</a>
+            </nav>
+            <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="4" y1="8" x2="20" y2="8"/>
+                    <line x1="4" y1="16" x2="20" y2="16"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close" onclick="toggleMobile()">&times;</button>
+        <a href="#oportunidade" onclick="toggleMobile()">A oportunidade</a>
+        <a href="#perfil" onclick="toggleMobile()">Perfil valorizado</a>
+        <a href="#sobre" onclick="toggleMobile()">Sobre a empresa</a>
+        <a href="#formulario" class="gold" onclick="toggleMobile()">Quero me candidatar</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-media">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" alt="Residência contemporânea de alto padrão à noite">
+        </div>
+        <div class="hero-scrim"></div>
+        <div class="hero-gradient"></div>
+        <svg class="hero-graphic" viewBox="0 0 420 300" fill="none" aria-hidden="true">
+            <rect x="20" y="220" width="52" height="80" fill="#FFD400"/>
+            <rect x="92" y="180" width="52" height="120" fill="#FFD400"/>
+            <rect x="164" y="130" width="52" height="170" fill="#FFD400"/>
+            <rect x="236" y="70" width="52" height="230" fill="#FFD400"/>
+            <path d="M30 200 330 20" stroke="#FFD400" stroke-width="3"/>
+            <path d="M330 20h-46m46 0v46" stroke="#FFD400" stroke-width="3"/>
+        </svg>
+        <div class="hero-inner">
+            <div class="hero-col-text">
+                <div class="hero-badge reveal">
+                    <span class="hero-badge-dot"></span>Estamos contratando
+                </div>
+                <h1 class="hero-title reveal reveal-delay-1">CONSULTOR<br>COMERCIAL</h1>
+                <p class="hero-subtitle reveal reveal-delay-1">Mercado financeiro e consórcios</p>
+                <p class="hero-desc reveal reveal-delay-2">Ajude pessoas a construir patrimônio, organizar a vida financeira e crescer com estratégia.</p>
+                <a href="#formulario" class="btn btn-primary btn-arrow reveal reveal-delay-3"><span>Quero me candidatar</span></a>
+                <p class="hero-support reveal reveal-delay-3">Preencha o formulário e apresente seu perfil para participar do processo seletivo.</p>
+                <div class="hero-signature reveal reveal-delay-4">
+                    <p class="hero-motto">Planeje hoje. Conquiste amanhã.</p>
+                    <p class="hero-meta">Quase três décadas de experiência incorporada · Brasília · Goiânia · Belo Horizonte</p>
+                </div>
+            </div>
+            <div class="hero-col-media" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- Propósito — CLARO -->
+    <section class="section section-light" id="oportunidade">
+        <div class="container">
+            <div class="editorial-split">
+                <div class="editorial-text">
+                    <span class="eyebrow reveal">Uma carreira com propósito</span>
+                    <h2 class="display-h2 reveal reveal-delay-1">Ajude pessoas a planejarem hoje o que desejam conquistar amanhã</h2>
+                    <div class="line-reveal reveal reveal-delay-2"></div>
+                    <p class="body-text reveal reveal-delay-2" style="margin-top: 2rem;">
+                        A oportunidade de Consultor Comercial está ligada à orientação de pessoas que desejam organizar sua vida financeira, planejar suas conquistas e construir patrimônio por meio de estratégia. A atuação acontece nos segmentos de mercado financeiro e consórcios, unindo relacionamento, conhecimento comercial e visão de futuro.
+                    </p>
+                    <div style="margin-top: 3rem;">
+                        <a href="#formulario" class="btn btn-outline btn-arrow reveal reveal-delay-3"><span>Quero participar</span></a>
+                    </div>
+                </div>
+                <div class="editorial-image reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Consultor conversando com cliente">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais — ESCURO -->
+    <section class="section" style="background: var(--black-soft);" id="perfil">
+        <div class="container text-center">
+            <span class="eyebrow reveal">Diferenciais que valorizamos</span>
+            <h2 class="display-h2 reveal reveal-delay-1" style="max-width: 700px; margin: 0 auto 1rem;">
+                Buscamos pessoas preparadas para criar relacionamentos e oportunidades
+            </h2>
+            <p class="body-text reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto 3rem;">
+                Procuramos profissionais com perfil comercial, capacidade de relacionamento e interesse em desenvolver uma trajetória no mercado financeiro e de consórcios.
+            </p>
+            <div class="line-reveal center reveal reveal-delay-2"></div>
+
+            <div class="cards-premium">
+                <div class="card-premium reveal reveal-delay-1">
+                    <div class="card-premium-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <rect x="8" y="28" width="8" height="12" rx="1"/>
+                            <rect x="20" y="18" width="8" height="22" rx="1"/>
+                            <rect x="32" y="8" width="8" height="32" rx="1"/>
+                            <path d="M36 8L44 2" stroke-linecap="round"/>
+                            <path d="M40 4L44 2L42 6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="card-premium-text"><em>Experiência</em> em vendas</p>
+                </div>
+                <div class="card-premium reveal reveal-delay-2">
+                    <div class="card-premium-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M16 32C16 32 12 28 12 24C12 20 16 16 16 16"/>
+                            <path d="M32 32C32 32 36 28 36 24C36 20 32 16 32 16"/>
+                            <path d="M20 36L24 40L28 36"/>
+                            <path d="M24 40V28"/>
+                            <circle cx="24" cy="20" r="6"/>
+                        </svg>
+                    </div>
+                    <p class="card-premium-text"><em>Conhecimento</em> em consórcios</p>
+                </div>
+                <div class="card-premium reveal reveal-delay-3">
+                    <div class="card-premium-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <rect x="6" y="18" width="36" height="22" rx="2"/>
+                            <path d="M14 18V14C14 10 18 6 24 6C30 6 34 10 34 14V18"/>
+                            <circle cx="24" cy="29" r="3"/>
+                            <path d="M24 32V36"/>
+                        </svg>
+                    </div>
+                    <p class="card-premium-text"><em>Vivência</em> no mercado financeiro</p>
+                </div>
+                <div class="card-premium reveal reveal-delay-4">
+                    <div class="card-premium-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <circle cx="16" cy="16" r="6"/>
+                            <circle cx="32" cy="16" r="6"/>
+                            <circle cx="24" cy="32" r="6"/>
+                            <path d="M20 20l4 8"/>
+                            <path d="M36 24l-2 10"/>
+                        </svg>
+                    </div>
+                    <p class="card-premium-text"><em>Networking</em> estratégico</p>
+                </div>
+                <div class="card-premium reveal reveal-delay-5">
+                    <div class="card-premium-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M24 4L28 18H42L31 26L35 40L24 32L13 40L17 26L6 18H20L24 4Z"/>
+                        </svg>
+                    </div>
+                    <p class="card-premium-text"><em>Perfil</em> empreendedor</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem;">
+                <a href="#formulario" class="btn btn-primary btn-arrow reveal"><span>Eu tenho esse perfil</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilares — ESCURO -->
+    <section class="section" style="background: var(--black-elevated);">
+        <div class="container text-center">
+            <span class="eyebrow reveal">Patrimônio • Liberdade • Legado</span>
+            <h2 class="display-h2 reveal reveal-delay-1" style="max-width: 700px; margin: 0 auto 1rem;">
+                Uma atuação comercial conectada às conquistas de cada cliente
+            </h2>
+            <p class="body-text reveal reveal-delay-2" style="max-width: 640px; margin: 0 auto;">
+                O trabalho do Consultor Comercial vai além da apresentação de uma solução. Ele participa do planejamento de objetivos que podem representar patrimônio, liberdade e legado para cada cliente.
+            </p>
+
+            <div class="pillars-row">
+                <div class="pillar-item reveal reveal-delay-1">
+                    <span class="pillar-num">01</span>
+                    <h3 class="pillar-title">PATRIMÔNIO</h3>
+                    <p class="pillar-desc">Apoiar pessoas no planejamento de conquistas e na construção dos seus bens.</p>
+                </div>
+                <div class="pillar-item reveal reveal-delay-2">
+                    <span class="pillar-num">02</span>
+                    <h3 class="pillar-title">LIBERDADE</h3>
+                    <p class="pillar-desc">Contribuir para uma vida financeira mais organizada e orientada por objetivos.</p>
+                </div>
+                <div class="pillar-item reveal reveal-delay-3">
+                    <span class="pillar-num">03</span>
+                    <h3 class="pillar-title">LEGADO</h3>
+                    <p class="pillar-desc">Criar relacionamentos duradouros e participar de decisões importantes para o futuro dos clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfil Profissional — ESCURO -->
+    <section class="section" style="background: var(--black);">
+        <div class="container">
+            <div class="editorial-split reverse">
+                <div class="editorial-image reveal">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="Profissional em evento de negócios">
+                </div>
+                <div class="editorial-text">
+                    <span class="eyebrow reveal reveal-delay-1">Perfil empreendedor</span>
+                    <h2 class="display-h2 reveal reveal-delay-1">Construa relacionamentos. Desenvolva oportunidades. Forme sua carteira.</h2>
+                    <div class="line-reveal reveal reveal-delay-2"></div>
+                    <p class="body-text reveal reveal-delay-2" style="margin-top: 2rem;">
+                        Valorizamos profissionais com iniciativa, visão comercial e disposição para desenvolver uma rede de relacionamentos com empresários, profissionais liberais e investidores. A proposta da atuação é construir uma carteira própria por meio de relacionamento, conhecimento e estratégia comercial.
+                    </p>
+
+                    <div class="highlights-grid reveal reveal-delay-3">
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            <p class="highlight-label">Relacionamento</p>
+                        </div>
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                            <p class="highlight-label">Prospecção</p>
+                        </div>
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                            <p class="highlight-label">Networking</p>
+                        </div>
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20V4"/>
+                                <path d="M6 20v-4"/>
+                            </svg>
+                            <p class="highlight-label">Estratégia</p>
+                        </div>
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                            <p class="highlight-label">Carteira</p>
+                        </div>
+                        <div class="highlight-cell">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                                <path d="M17 6h6v6"/>
+                            </svg>
+                            <p class="highlight-label">Crescimento</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <a href="#formulario" class="btn btn-outline btn-arrow reveal reveal-delay-4"><span>Apresentar meu perfil</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segmentos — CLARO -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <span class="eyebrow reveal">Mercado financeiro e consórcios</span>
+                <h2 class="display-h2 reveal reveal-delay-1" style="max-width: 600px; margin: 0 auto 1rem;">
+                    Conhecimento para orientar. Relacionamento para crescer.
+                </h2>
+                <p class="body-text reveal reveal-delay-2" style="max-width: 640px; margin: 0 auto;">
+                    A oportunidade está direcionada a profissionais que tenham conhecimento em consórcios, vivência no mercado financeiro ou interesse em utilizar sua experiência comercial e sua rede de contatos nesse segmento.
+                </p>
+            </div>
+
+            <div class="segments-row">
+                <div class="segment-item reveal reveal-delay-1">
+                    <svg class="segment-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <rect x="8" y="12" width="40" height="32" rx="3"/>
+                        <path d="M8 24h40"/>
+                        <path d="M20 36h16"/>
+                        <circle cx="28" cy="18" r="2"/>
+                    </svg>
+                    <h3 class="segment-title">Mercado financeiro</h3>
+                    <p class="segment-desc">Usar experiência e conhecimento comercial para compreender objetivos e construir relacionamentos profissionais.</p>
+                </div>
+                <div class="segment-item reveal reveal-delay-2">
+                    <svg class="segment-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <rect x="10" y="8" width="36" height="40" rx="3"/>
+                        <path d="M10 20h36"/>
+                        <circle cx="20" cy="14" r="2"/>
+                        <circle cx="28" cy="14" r="2"/>
+                        <circle cx="36" cy="14" r="2"/>
+                        <path d="M18 32l6 6 14-14"/>
+                    </svg>
+                    <h3 class="segment-title">Consórcios</h3>
+                    <p class="segment-desc">Apresentar alternativas de planejamento relacionadas às conquistas e à construção de patrimônio.</p>
+                </div>
+                <div class="segment-item reveal reveal-delay-3">
+                    <svg class="segment-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <circle cx="20" cy="20" r="8"/>
+                        <circle cx="40" cy="20" r="6"/>
+                        <circle cx="30" cy="40" r="7"/>
+                        <path d="M26 26l4 8"/>
+                        <path d="M36 24l-2 10"/>
+                    </svg>
+                    <h3 class="segment-title">Relacionamento</h3>
+                    <p class="segment-desc">Desenvolver conexões com empresários, profissionais liberais, investidores e demais clientes em potencial.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="#formulario" class="btn btn-primary btn-arrow reveal"><span>Quero atuar nesse mercado</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jornada — CLARO -->
+    <section class="section section-light" style="background: var(--white);">
+        <div class="container text-center">
+            <span class="eyebrow reveal">Dê o primeiro passo</span>
+            <h2 class="display-h2 reveal reveal-delay-1" style="max-width: 600px; margin: 0 auto 1rem;">
+                Apresente seu perfil para esta oportunidade
+            </h2>
+            <p class="body-text reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto;">
+                Se você possui experiência em vendas, conhecimento em consórcios, vivência no mercado financeiro, networking ou perfil empreendedor, queremos conhecer sua trajetória.
+            </p>
+
+            <div class="journey-track">
+                <div class="journey-node reveal reveal-delay-1">
+                    <div class="journey-dot"></div>
+                    <h3 class="journey-title">Preencha seus dados</h3>
+                    <p class="journey-desc">Complete o formulário com suas informações de contato e experiência profissional.</p>
+                </div>
+                <div class="journey-node reveal reveal-delay-2">
+                    <div class="journey-dot"></div>
+                    <h3 class="journey-title">Conte sua experiência</h3>
+                    <p class="journey-desc">Descreva sua trajetória comercial, relacionamentos e interesse na oportunidade.</p>
+                </div>
+                <div class="journey-node reveal reveal-delay-3">
+                    <div class="journey-dot"></div>
+                    <h3 class="journey-title">Envie sua candidatura</h3>
+                    <p class="journey-desc">Finalize o envio e aguarde a análise do seu perfil pela nossa equipe.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 5rem;">
+                <a href="#formulario" class="btn btn-outline btn-arrow reveal"><span>Iniciar minha candidatura</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário — ESCURO -->
+    <section class="section form-section" id="formulario">
+        <div class="container">
+            <div class="form-wrap">
+                <div class="form-frame reveal">
+
+                    <!-- ===== Tela de abertura ===== -->
+                    <div class="wz-screen active" data-screen="intro">
+                        <p class="wz-intro-sub">Mercado financeiro e consórcios</p>
+                        <h2 class="wz-intro-title">Candidate-se para Consultor Comercial</h2>
+                        <p class="wz-intro-desc">Conte-nos sobre sua experiência, seu perfil comercial e seus objetivos profissionais. O formulário é dividido em etapas rápidas.</p>
+                        <button type="button" class="btn btn-primary" id="wzStart"><span>Iniciar qualificação</span></button>
+                    </div>
+
+                    <!-- ===== Wizard ===== -->
+                    <div class="wz-screen" data-screen="wizard">
+                        <div class="wz-progress">
+                            <div class="wz-progress-head">
+                                <span class="wz-progress-label" id="wzLabel" aria-live="polite">Etapa <b>1</b> de 11 — Dados pessoais</span>
+                                <span class="wz-progress-pct" id="wzPct">9%</span>
+                            </div>
+                            <div class="wz-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="9" aria-label="Progresso da qualificação">
+                                <div class="wz-progress-fill" id="wzFill"></div>
+                            </div>
+                        </div>
+
+                        <form id="qualForm" novalidate>
+
+                            <!-- Etapa 1 — Dados pessoais -->
+                            <div class="wz-step active" data-step="1">
+                                <h3 class="wz-title">Primeiro, fale sobre você</h3>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="q_nome">Nome completo <span class="req">*</span></label>
+                                        <input type="text" id="q_nome" name="nome" class="form-input" placeholder="Seu nome completo" autocomplete="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="q_idade">Idade <span class="req">*</span></label>
+                                        <input type="number" id="q_idade" name="idade" class="form-input" placeholder="00" min="16" max="99" inputmode="numeric" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q_email">E-mail <span class="req">*</span></label>
+                                    <input type="email" id="q_email" name="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="q_telefone">Telefone <span class="req">*</span></label>
+                                        <input type="tel" id="q_telefone" name="telefone" class="form-input" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="tel" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="q_whatsapp">WhatsApp <span class="req">*</span></label>
+                                        <input type="tel" id="q_whatsapp" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" inputmode="tel" required>
+                                    </div>
+                                </div>
+
+                                <label class="wz-check">
+                                    <input type="checkbox" id="q_mesmoZap">
+                                    <span class="wz-check-box"></span>
+                                    <span class="wz-check-text">Meu telefone também é meu WhatsApp</span>
+                                </label>
+
+                                <p class="wz-error" id="err1"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 2 — Localização e redes -->
+                            <div class="wz-step" data-step="2">
+                                <h3 class="wz-title">Onde podemos encontrar você?</h3>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="q_cidade">Cidade <span class="req">*</span></label>
+                                        <input type="text" id="q_cidade" name="cidade" class="form-input" placeholder="Ex: Brasília" autocomplete="address-level2" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="q_estado">Estado <span class="req">*</span></label>
+                                        <select id="q_estado" name="estado" class="form-input" required>
+                                            <option value="">Selecione</option>
+                                            <option value="AC">Acre</option><option value="AL">Alagoas</option>
+                                            <option value="AP">Amapá</option><option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option><option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option><option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option><option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option><option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option><option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
+                                            <option value="SP">São Paulo</option><option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="q_linkedin">LinkedIn</label>
+                                        <input type="text" id="q_linkedin" name="linkedin" class="form-input" placeholder="linkedin.com/in/seu-perfil">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="q_instagram">Instagram</label>
+                                        <input type="text" id="q_instagram" name="instagram" class="form-input" placeholder="@seuusuario">
+                                    </div>
+                                </div>
+                                <p class="wz-hint">LinkedIn e Instagram são opcionais.</p>
+
+                                <p class="wz-error" id="err2"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 3 — Atuação profissional atual -->
+                            <div class="wz-step" data-step="3">
+                                <h3 class="wz-title">Em qual área você trabalha atualmente?</h3>
+
+                                <span class="wz-q">Atualmente você trabalha com <span class="req">*</span></span>
+                                <p class="wz-hint">Pode marcar mais de uma opção.</p>
+                                <div class="opt-grid cols" data-group="atuacaoAtual">
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Mercado financeiro"><span class="opt-face">Mercado financeiro</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Consórcio"><span class="opt-face">Consórcio</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Seguro"><span class="opt-face">Seguro</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Imóveis"><span class="opt-face">Imóveis</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Representação comercial"><span class="opt-face">Representação comercial</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Vendas internas"><span class="opt-face">Vendas internas</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Empreendedor"><span class="opt-face">Empreendedor</span></label>
+                                    <label class="opt"><input type="checkbox" name="atuacaoAtual" value="Outro" id="q_atuacaoOutro"><span class="opt-face">Outro</span></label>
+                                </div>
+
+                                <div class="wz-cond" id="condOutraAtuacao">
+                                    <div class="form-group">
+                                        <label for="q_outraAtuacao">Qual é a sua área de atuação? <span class="req">*</span></label>
+                                        <input type="text" id="q_outraAtuacao" name="outraAtuacao" class="form-input" placeholder="Descreva sua área">
+                                    </div>
+                                </div>
+
+                                <p class="wz-error" id="err3"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 4 — Experiência comercial -->
+                            <div class="wz-step" data-step="4">
+                                <h3 class="wz-title">Qual é a sua experiência com vendas?</h3>
+
+                                <span class="wz-q">Quanto tempo possui de experiência comercial? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="tempoExperienciaComercial">
+                                    <label class="opt"><input type="radio" name="tempoExperienciaComercial" value="Nunca vendi"><span class="opt-face">Nunca vendi</span></label>
+                                    <label class="opt"><input type="radio" name="tempoExperienciaComercial" value="Menos de 1 ano"><span class="opt-face">Menos de 1 ano</span></label>
+                                    <label class="opt"><input type="radio" name="tempoExperienciaComercial" value="De 1 a 3 anos"><span class="opt-face">De 1 a 3 anos</span></label>
+                                    <label class="opt"><input type="radio" name="tempoExperienciaComercial" value="De 3 a 5 anos"><span class="opt-face">De 3 a 5 anos</span></label>
+                                    <label class="opt"><input type="radio" name="tempoExperienciaComercial" value="Mais de 5 anos"><span class="opt-face">Mais de 5 anos</span></label>
+                                </div>
+
+                                <span class="wz-q">Com quais áreas você já trabalhou?</span>
+                                <p class="wz-hint">Pode marcar mais de uma. Vale também experiência operacional, sem venda direta.</p>
+                                <div class="opt-grid" data-group="areasExperiencia">
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Consórcio"><span class="opt-face">Consórcio</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Seguro"><span class="opt-face">Seguro</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Previdência"><span class="opt-face">Previdência</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Investimentos"><span class="opt-face">Investimentos</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Crédito"><span class="opt-face">Crédito</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Imóveis"><span class="opt-face">Imóveis</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Empresas"><span class="opt-face">Empresas</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="B2B"><span class="opt-face">B2B</span></label>
+                                    <label class="opt"><input type="checkbox" name="areasExperiencia" value="Alta renda"><span class="opt-face">Alta renda</span></label>
+                                </div>
+
+                                <p class="wz-error" id="err4"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 5 — Carteira de clientes -->
+                            <div class="wz-step" data-step="5">
+                                <h3 class="wz-title">Você já possui uma rede de clientes?</h3>
+
+                                <span class="wz-q">Você possui carteira de clientes? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="possuiCarteira">
+                                    <label class="opt"><input type="radio" name="possuiCarteira" value="Sim"><span class="opt-face">Sim</span></label>
+                                    <label class="opt"><input type="radio" name="possuiCarteira" value="Não"><span class="opt-face">Não</span></label>
+                                </div>
+
+                                <div class="wz-cond" id="condQtdClientes">
+                                    <span class="wz-q">Quantos clientes possui aproximadamente? <span class="req">*</span></span>
+                                    <div class="opt-grid" data-group="quantidadeClientes">
+                                        <label class="opt"><input type="radio" name="quantidadeClientes" value="Até 20"><span class="opt-face">Até 20</span></label>
+                                        <label class="opt"><input type="radio" name="quantidadeClientes" value="De 21 a 50"><span class="opt-face">De 21 a 50</span></label>
+                                        <label class="opt"><input type="radio" name="quantidadeClientes" value="De 51 a 100"><span class="opt-face">De 51 a 100</span></label>
+                                        <label class="opt"><input type="radio" name="quantidadeClientes" value="De 101 a 300"><span class="opt-face">De 101 a 300</span></label>
+                                        <label class="opt"><input type="radio" name="quantidadeClientes" value="Mais de 300"><span class="opt-face">Mais de 300</span></label>
+                                    </div>
+                                </div>
+
+                                <p class="wz-error" id="err5"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 6 — Certificações -->
+                            <div class="wz-step" data-step="6">
+                                <h3 class="wz-title">Você possui alguma certificação profissional?</h3>
+
+                                <span class="wz-q">Selecione todas as certificações que possui <span class="req">*</span></span>
+                                <p class="wz-hint">Não ter certificação não impede a candidatura.</p>
+                                <div class="opt-grid" data-group="certificacoes">
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="CPA-10"><span class="opt-face">CPA-10</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="CPA-20"><span class="opt-face">CPA-20</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="CEA"><span class="opt-face">CEA</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="CFP"><span class="opt-face">CFP</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="ANCORD"><span class="opt-face">ANCORD</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="SUSEP"><span class="opt-face">SUSEP</span></label>
+                                    <label class="opt"><input type="checkbox" name="certificacoes" value="Nenhuma" id="q_certNenhuma"><span class="opt-face">Nenhuma</span></label>
+                                </div>
+
+                                <p class="wz-error" id="err6"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 7 — Estrutura e disponibilidade -->
+                            <div class="wz-step" data-step="7">
+                                <h3 class="wz-title">Qual é sua disponibilidade para essa oportunidade?</h3>
+
+                                <span class="wz-q">Quanto tempo você pode dedicar semanalmente? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="horasSemanais">
+                                    <label class="opt"><input type="radio" name="horasSemanais" value="Até 10 horas por semana"><span class="opt-face">Até 10 horas</span></label>
+                                    <label class="opt"><input type="radio" name="horasSemanais" value="De 11 a 20 horas"><span class="opt-face">De 11 a 20 horas</span></label>
+                                    <label class="opt"><input type="radio" name="horasSemanais" value="De 21 a 30 horas"><span class="opt-face">De 21 a 30 horas</span></label>
+                                    <label class="opt"><input type="radio" name="horasSemanais" value="De 31 a 40 horas"><span class="opt-face">De 31 a 40 horas</span></label>
+                                    <label class="opt"><input type="radio" name="horasSemanais" value="Mais de 40 horas"><span class="opt-face">Mais de 40 horas</span></label>
+                                </div>
+
+                                <span class="wz-q">Você possui veículo próprio? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="veiculoProprio">
+                                    <label class="opt"><input type="radio" name="veiculoProprio" value="Sim"><span class="opt-face">Sim</span></label>
+                                    <label class="opt"><input type="radio" name="veiculoProprio" value="Não"><span class="opt-face">Não</span></label>
+                                </div>
+
+                                <span class="wz-q">Você possui notebook? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="possuiNotebook">
+                                    <label class="opt"><input type="radio" name="possuiNotebook" value="Sim"><span class="opt-face">Sim</span></label>
+                                    <label class="opt"><input type="radio" name="possuiNotebook" value="Não"><span class="opt-face">Não</span></label>
+                                </div>
+
+                                <span class="wz-q">Tem disponibilidade para capacitação, caso a oportunidade exija? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="participaTreinamentos">
+                                    <label class="opt"><input type="radio" name="participaTreinamentos" value="Sim"><span class="opt-face">Sim</span></label>
+                                    <label class="opt"><input type="radio" name="participaTreinamentos" value="Não"><span class="opt-face">Não</span></label>
+                                </div>
+
+                                <p class="wz-error" id="err7"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 8 — Momento financeiro -->
+                            <div class="wz-step" data-step="8">
+                                <h3 class="wz-title">Conte-nos sobre seu momento atual</h3>
+
+                                <span class="wz-q">Qual é sua renda mensal hoje? <span class="req">*</span></span>
+                                <div class="opt-grid" data-group="rendaAtual">
+                                    <label class="opt"><input type="radio" name="rendaAtual" value="Até R$ 2 mil"><span class="opt-face">Até R$ 2 mil</span></label>
+                                    <label class="opt"><input type="radio" name="rendaAtual" value="De R$ 2 mil a R$ 5 mil"><span class="opt-face">De R$ 2 mil a R$ 5 mil</span></label>
+                                    <label class="opt"><input type="radio" name="rendaAtual" value="De R$ 5 mil a R$ 10 mil"><span class="opt-face">De R$ 5 mil a R$ 10 mil</span></label>
+                                    <label class="opt"><input type="radio" name="rendaAtual" value="De R$ 10 mil a R$ 20 mil"><span class="opt-face">De R$ 10 mil a R$ 20 mil</span></label>
+                                    <label class="opt"><input type="radio" name="rendaAtual" value="Acima de R$ 20 mil"><span class="opt-face">Acima de R$ 20 mil</span></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q_rendaDesejada">Quanto deseja ganhar nos próximos 12 meses? <span class="req">*</span></label>
+                                    <input type="text" id="q_rendaDesejada" name="rendaDesejada12Meses" class="form-input" placeholder="R$ 0,00" inputmode="numeric" required>
+                                </div>
+                                <p class="wz-hint">Informe uma meta <strong>mensal</strong> de renda que deseja alcançar nos próximos 12 meses. Isso evita a dúvida entre informar renda mensal ou o total acumulado no período.</p>
+
+                                <p class="wz-error" id="err8"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 9 — Motivação -->
+                            <div class="wz-step" data-step="9">
+                                <h3 class="wz-title">O que você busca para sua carreira?</h3>
+
+                                <span class="wz-q">Qual é sua maior motivação? <span class="req">*</span></span>
+                                <p class="wz-hint">Escolha apenas uma.</p>
+                                <div class="opt-grid" data-group="maiorMotivacao">
+                                    <label class="opt"><input type="radio" name="maiorMotivacao" value="Ganhar mais"><span class="opt-face">Ganhar mais</span></label>
+                                    <label class="opt"><input type="radio" name="maiorMotivacao" value="Mudança de carreira"><span class="opt-face">Mudança de carreira</span></label>
+                                    <label class="opt"><input type="radio" name="maiorMotivacao" value="Liberdade"><span class="opt-face">Liberdade</span></label>
+                                    <label class="opt"><input type="radio" name="maiorMotivacao" value="Crescimento"><span class="opt-face">Crescimento</span></label>
+                                    <label class="opt"><input type="radio" name="maiorMotivacao" value="Mercado financeiro"><span class="opt-face">Mercado financeiro</span></label>
+                                </div>
+
+                                <p class="wz-error" id="err9"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Continuar</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 10 — Autoavaliação comercial -->
+                            <div class="wz-step" data-step="10">
+                                <h3 class="wz-title">Como você avalia sua habilidade comercial?</h3>
+
+                                <span class="wz-q">De 0 a 10, qual nota você dá para sua habilidade comercial? <span class="req">*</span></span>
+                                <div class="scale-row" data-group="habilidadeComercial">
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="0"><span class="scale-face">0</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="1"><span class="scale-face">1</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="2"><span class="scale-face">2</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="3"><span class="scale-face">3</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="4"><span class="scale-face">4</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="5"><span class="scale-face">5</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="6"><span class="scale-face">6</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="7"><span class="scale-face">7</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="8"><span class="scale-face">8</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="9"><span class="scale-face">9</span></label>
+                                    <label class="scale-opt"><input type="radio" name="habilidadeComercial" value="10"><span class="scale-face">10</span></label>
+                                </div>
+                                <div class="scale-legend">
+                                    <span>0 — Ainda preciso desenvolver</span>
+                                    <span>5 — Nível intermediário</span>
+                                    <span>10 — Excelente domínio</span>
+                                </div>
+
+                                <p class="wz-error" id="err10"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="button" class="btn btn-primary wz-next"><span>Revisar respostas</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Etapa 11 — Revisão e consentimento -->
+                            <div class="wz-step" data-step="11">
+                                <h3 class="wz-title">Revise sua qualificação</h3>
+                                <p class="wz-hint">Confira suas respostas antes de enviar. Caso necessário, você pode voltar e editar qualquer etapa.</p>
+
+                                <div id="wzReview"></div>
+
+                                <label class="wz-check" style="margin-top:2rem;">
+                                    <input type="checkbox" id="q_consentimento" name="consentimento" required>
+                                    <span class="wz-check-box"></span>
+                                    <span class="wz-check-text">Declaro que as informações fornecidas são verdadeiras e autorizo o tratamento dos meus dados para análise do meu perfil profissional, conforme a <a href="#" id="linkPrivacidade">Política de Privacidade</a>.</span>
+                                </label>
+
+                                <p class="wz-error" id="err11"></p>
+                                <div class="wz-nav">
+                                    <button type="button" class="btn btn-ghost wz-back"><span>Voltar</span></button>
+                                    <button type="submit" class="btn btn-primary" id="wzSubmit"><span>Enviar minha qualificação</span></button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- ===== Tela de confirmação ===== -->
+                    <div class="wz-screen" data-screen="sucesso">
+                        <div class="wz-done">
+                            <div class="wz-done-mark">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </div>
+                            <h2 class="wz-done-title">Qualificação enviada com sucesso!</h2>
+                            <p class="wz-done-desc">Recebemos suas informações. Caso seu perfil avance no processo de seleção, a empresa poderá entrar em contato por telefone, WhatsApp ou e-mail.</p>
+                            <p class="wz-done-inst">Planeje hoje. Conquiste amanhã.</p>
+                            <button type="button" class="btn btn-ghost" id="wzRestart"><span>Voltar ao início</span></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final — ESCURO -->
+    <section class="final-cta">
+        <div class="final-cta-media">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" alt="Pessoa caminhando em direção à entrada iluminada">
+        </div>
+        <div class="final-cta-overlay"></div>
+        <div class="container">
+            <div class="final-cta-content">
+                <p class="serif-quote reveal" style="margin-bottom: 2rem;">Planeje hoje. Conquiste amanhã.</p>
+                <h2 class="display-h2 reveal reveal-delay-1" style="margin-bottom: 1.5rem;">Seu próximo passo profissional pode começar aqui</h2>
+                <p class="body-text reveal reveal-delay-2" style="margin-bottom: 3rem; color: var(--white-muted);">
+                    Use sua experiência comercial, seu conhecimento e sua rede de relacionamentos para ajudar pessoas a construir patrimônio e crescer com estratégia.
+                </p>
+                <a href="#formulario" class="btn btn-primary btn-arrow reveal reveal-delay-3"><span>Quero me candidatar</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer — ESCURO -->
+    <footer class="footer" id="sobre">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark">
+                            <svg viewBox="0 0 40 48" fill="none">
+                                <path d="M20 2L4 10V22C4 33.5 20 46 20 46C20 46 36 33.5 36 22V10L20 2Z" fill="#FFD400" stroke="#FFD400" stroke-width="1"/>
+                                <path d="M20 8L10 13V21C10 28.5 20 38 20 38C20 38 30 28.5 30 21V13L20 8Z" fill="#050505"/>
+                                <rect x="16" y="16" width="8" height="12" rx="1" fill="#FFD400"/>
+                            </svg>
+                        </div>
+                        <div class="logo-wordmark">
+                            INVESTIDOR PROTEGIDO
+                            <span>SOLUÇÕES FINANCEIRAS</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">Protegendo famílias e construindo um legado. O seu sonho é a nossa missão!</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#oportunidade">A oportunidade</a></li>
+                        <li><a href="#perfil">Perfil valorizado</a></li>
+                        <li><a href="#formulario">Candidate-se</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@investidorprotegido.com.br">contato@investidorprotegido.com.br</a></li>
+                        <li><a href="https://investidorprotegido.com.br" target="_blank">investidorprotegido.com.br</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Redes sociais</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/investidorprotegido" target="_blank">@investidorprotegido</a></li>
+                        <li><a href="https://instagram.com/investidorprotegido.franquias" target="_blank">@investidorprotegido.franquias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Investidor Protegido — Soluções Financeiras. Todos os direitos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/investidorprotegido" target="_blank" aria-label="Instagram">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@investidorprotegido.com.br" aria-label="E-mail">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/" aria-label="WhatsApp">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        /* =========================================================
+           CONFIGURE AQUI O DESTINO DAS CANDIDATURAS
+           Cole a URL do webhook (Make, n8n, Zapier, Apps Script,
+           Formspree...). Enquanto estiver vazia, o botão de envio
+           mostra um erro explícito — nunca um sucesso falso.
+           ========================================================= */
+        const ENDPOINT_QUALIFICACAO = '';
+
+        /* ---------- Interface geral ---------- */
+        function toggleMobile() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal, .line-reveal').forEach(el => obs.observe(el));
+
+        /* O hero é a primeira tela: anima na carga, não por interseção — assim nenhum
+           elemento dele fica invisível em viewports mais baixas. */
+        requestAnimationFrame(() => {
+            document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const t = document.querySelector(href);
+                    if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+                    const nav = document.getElementById('mobileNav');
+                    if (nav && nav.classList.contains('active')) toggleMobile();
+                }
+            });
+        });
+
+        /* =========================================================
+           Formulário de qualificação — 11 etapas
+           ========================================================= */
+        (function () {
+            const form = document.getElementById('qualForm');
+            if (!form) return;
+
+            const ETAPAS = [
+                { n: 1,  nome: 'Dados pessoais',           pct: 9   },
+                { n: 2,  nome: 'Localização e redes',      pct: 18  },
+                { n: 3,  nome: 'Atuação atual',            pct: 27  },
+                { n: 4,  nome: 'Experiência',              pct: 36  },
+                { n: 5,  nome: 'Carteira de clientes',     pct: 45  },
+                { n: 6,  nome: 'Certificações',            pct: 55  },
+                { n: 7,  nome: 'Disponibilidade',          pct: 64  },
+                { n: 8,  nome: 'Momento financeiro',       pct: 73  },
+                { n: 9,  nome: 'Motivação',                pct: 82  },
+                { n: 10, nome: 'Autoavaliação',            pct: 91  },
+                { n: 11, nome: 'Revisão',                  pct: 100 }
+            ];
+            const TOTAL = ETAPAS.length;
+            let atual = 1;
+            let enviando = false;
+
+            const $  = (s, r) => (r || document).querySelector(s);
+            const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+            const passo = n => $('.wz-step[data-step="' + n + '"]');
+            const tela  = n => $('.wz-screen[data-screen="' + n + '"]');
+
+            /* ---------- Máscaras ---------- */
+            function mascaraTelefone(v) {
+                const d = v.replace(/\D/g, '').slice(0, 11);
+                if (d.length <= 2) return d.length ? '(' + d : '';
+                if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+                if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+                return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+            }
+            function mascaraMoeda(v) {
+                const d = v.replace(/\D/g, '').slice(0, 11);
+                if (!d) return '';
+                const n = (parseInt(d, 10) / 100).toFixed(2);
+                return 'R$ ' + n.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            }
+
+            const elTel = $('#q_telefone'), elZap = $('#q_whatsapp'), elMesmo = $('#q_mesmoZap');
+            elTel.addEventListener('input', () => {
+                elTel.value = mascaraTelefone(elTel.value);
+                if (elMesmo.checked) elZap.value = elTel.value;
+            });
+            elZap.addEventListener('input', () => { elZap.value = mascaraTelefone(elZap.value); });
+            elMesmo.addEventListener('change', () => {
+                if (elMesmo.checked) { elZap.value = elTel.value; elZap.readOnly = true; }
+                else { elZap.readOnly = false; }
+            });
+
+            const elRenda = $('#q_rendaDesejada');
+            elRenda.addEventListener('input', () => { elRenda.value = mascaraMoeda(elRenda.value); });
+
+            /* ---------- Regras condicionais ---------- */
+            const condOutra = $('#condOutraAtuacao'), inOutra = $('#q_outraAtuacao');
+            $('#q_atuacaoOutro').addEventListener('change', function () {
+                condOutra.classList.toggle('open', this.checked);
+                if (!this.checked) inOutra.value = '';
+            });
+
+            const condQtd = $('#condQtdClientes');
+            $$('input[name="possuiCarteira"]').forEach(r => r.addEventListener('change', function () {
+                const sim = this.value === 'Sim';
+                condQtd.classList.toggle('open', sim);
+                if (!sim) $$('input[name="quantidadeClientes"]').forEach(x => { x.checked = false; });
+            }));
+
+            const certNenhuma = $('#q_certNenhuma');
+            $$('input[name="certificacoes"]').forEach(c => c.addEventListener('change', function () {
+                if (this === certNenhuma) {
+                    if (this.checked) $$('input[name="certificacoes"]').forEach(x => { if (x !== certNenhuma) x.checked = false; });
+                } else if (this.checked) {
+                    certNenhuma.checked = false;
+                }
+            }));
+
+            /* ---------- Validação ---------- */
+            function erro(n, msg, alvo) {
+                const el = $('#err' + n);
+                el.textContent = msg;
+                el.classList.add('show');
+                if (alvo) {
+                    alvo.classList.add('wz-invalid');
+                    if (typeof alvo.focus === 'function') alvo.focus({ preventScroll: false });
+                }
+                return false;
+            }
+            function limparErro(n) {
+                const el = $('#err' + n);
+                el.textContent = '';
+                el.classList.remove('show');
+                $$('.wz-invalid', passo(n)).forEach(x => x.classList.remove('wz-invalid'));
+            }
+            const marcados = nome => $$('input[name="' + nome + '"]:checked');
+            const escolhido = nome => { const c = marcados(nome)[0]; return c ? c.value : ''; };
+            function grupo(n, nome) { return $('[data-group="' + nome + '"]', passo(n)); }
+
+            function validar(n) {
+                limparErro(n);
+                const vazio = el => !el.value.trim();
+
+                if (n === 1) {
+                    if (vazio($('#q_nome'))) return erro(1, 'Informe seu nome completo.', $('#q_nome'));
+                    const idade = parseInt($('#q_idade').value, 10);
+                    if (!idade || idade < 16 || idade > 99) return erro(1, 'Informe uma idade entre 16 e 99.', $('#q_idade'));
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($('#q_email').value.trim())) return erro(1, 'Informe um e-mail válido.', $('#q_email'));
+                    if ($('#q_telefone').value.replace(/\D/g, '').length < 10) return erro(1, 'Informe um telefone completo com DDD.', $('#q_telefone'));
+                    if ($('#q_whatsapp').value.replace(/\D/g, '').length < 10) return erro(1, 'Informe um WhatsApp completo com DDD.', $('#q_whatsapp'));
+                    return true;
+                }
+                if (n === 2) {
+                    if (vazio($('#q_cidade'))) return erro(2, 'Informe sua cidade.', $('#q_cidade'));
+                    if (vazio($('#q_estado'))) return erro(2, 'Selecione seu estado.', $('#q_estado'));
+                    return true;
+                }
+                if (n === 3) {
+                    if (!marcados('atuacaoAtual').length) return erro(3, 'Selecione ao menos uma área de atuação.', grupo(3, 'atuacaoAtual'));
+                    if ($('#q_atuacaoOutro').checked && vazio(inOutra)) return erro(3, 'Descreva qual é a sua área de atuação.', inOutra);
+                    return true;
+                }
+                if (n === 4) {
+                    if (!escolhido('tempoExperienciaComercial')) return erro(4, 'Selecione seu tempo de experiência comercial.', grupo(4, 'tempoExperienciaComercial'));
+                    return true;
+                }
+                if (n === 5) {
+                    if (!escolhido('possuiCarteira')) return erro(5, 'Informe se possui carteira de clientes.', grupo(5, 'possuiCarteira'));
+                    if (escolhido('possuiCarteira') === 'Sim' && !escolhido('quantidadeClientes')) return erro(5, 'Informe a quantidade aproximada de clientes.', grupo(5, 'quantidadeClientes'));
+                    return true;
+                }
+                if (n === 6) {
+                    if (!marcados('certificacoes').length) return erro(6, 'Selecione suas certificações ou marque "Nenhuma".', grupo(6, 'certificacoes'));
+                    return true;
+                }
+                if (n === 7) {
+                    const obrig = [
+                        ['horasSemanais', 'Informe quantas horas pode dedicar por semana.'],
+                        ['veiculoProprio', 'Informe se possui veículo próprio.'],
+                        ['possuiNotebook', 'Informe se possui notebook.'],
+                        ['participaTreinamentos', 'Informe sua disponibilidade para capacitação.']
+                    ];
+                    for (const [campo, msg] of obrig) {
+                        if (!escolhido(campo)) return erro(7, msg, grupo(7, campo));
+                    }
+                    return true;
+                }
+                if (n === 8) {
+                    if (!escolhido('rendaAtual')) return erro(8, 'Selecione sua renda mensal atual.', grupo(8, 'rendaAtual'));
+                    if (elRenda.value.replace(/\D/g, '') === '' || parseInt(elRenda.value.replace(/\D/g, ''), 10) === 0) {
+                        return erro(8, 'Informe a meta mensal de renda desejada.', elRenda);
+                    }
+                    return true;
+                }
+                if (n === 9) {
+                    if (!escolhido('maiorMotivacao')) return erro(9, 'Selecione sua maior motivação.', grupo(9, 'maiorMotivacao'));
+                    return true;
+                }
+                if (n === 10) {
+                    if (!escolhido('habilidadeComercial')) return erro(10, 'Escolha uma nota de 0 a 10.', grupo(10, 'habilidadeComercial'));
+                    return true;
+                }
+                if (n === 11) {
+                    if (!$('#q_consentimento').checked) return erro(11, 'É necessário aceitar o consentimento para enviar.', $('#q_consentimento'));
+                    return true;
+                }
+                return true;
+            }
+
+            /* ---------- Navegação ---------- */
+            function irPara(n, validando) {
+                if (validando && n > atual) {
+                    for (let i = atual; i < n; i++) { if (!validar(i)) return; }
+                }
+                atual = n;
+                $$('.wz-step').forEach(s => s.classList.remove('active'));
+                passo(n).classList.add('active');
+
+                const meta = ETAPAS[n - 1];
+                $('#wzLabel').innerHTML = 'Etapa <b>' + n + '</b> de ' + TOTAL + ' — ' + meta.nome;
+                $('#wzPct').textContent = meta.pct + '%';
+                $('#wzFill').style.width = meta.pct + '%';
+                $('.wz-progress-track').setAttribute('aria-valuenow', String(meta.pct));
+
+                if (n === TOTAL) montarRevisao();
+
+                const titulo = $('.wz-title', passo(n));
+                if (titulo) { titulo.setAttribute('tabindex', '-1'); titulo.focus({ preventScroll: true }); }
+
+                const topo = $('#formulario').getBoundingClientRect().top + window.pageYOffset - 80;
+                window.scrollTo({ top: topo, behavior: 'smooth' });
+            }
+
+            $$('.wz-next').forEach(b => b.addEventListener('click', () => {
+                if (validar(atual)) irPara(Math.min(atual + 1, TOTAL), false);
+            }));
+            $$('.wz-back').forEach(b => b.addEventListener('click', () => irPara(Math.max(atual - 1, 1), false)));
+
+            $('#wzStart').addEventListener('click', () => {
+                tela('intro').classList.remove('active');
+                tela('wizard').classList.add('active');
+                irPara(1, false);
+            });
+            $('#wzRestart').addEventListener('click', () => {
+                tela('sucesso').classList.remove('active');
+                tela('intro').classList.add('active');
+                window.scrollTo({ top: $('#formulario').getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+            });
+
+            form.addEventListener('keydown', e => {
+                if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && atual < TOTAL) {
+                    e.preventDefault();
+                    if (validar(atual)) irPara(atual + 1, false);
+                }
+            });
+
+            /* ---------- Coleta ---------- */
+            const listaDe = nome => marcados(nome).map(c => c.value);
+            function coletar() {
+                return {
+                    dadosPessoais: {
+                        nome: $('#q_nome').value.trim(),
+                        idade: $('#q_idade').value.trim(),
+                        email: $('#q_email').value.trim(),
+                        telefone: $('#q_telefone').value.trim(),
+                        whatsapp: $('#q_whatsapp').value.trim()
+                    },
+                    localizacaoRedes: {
+                        cidade: $('#q_cidade').value.trim(),
+                        estado: $('#q_estado').value,
+                        linkedin: $('#q_linkedin').value.trim(),
+                        instagram: $('#q_instagram').value.trim()
+                    },
+                    qualificacao: {
+                        atuacaoAtual: listaDe('atuacaoAtual'),
+                        outraAtuacao: inOutra.value.trim(),
+                        tempoExperienciaComercial: escolhido('tempoExperienciaComercial'),
+                        areasExperiencia: listaDe('areasExperiencia'),
+                        possuiCarteira: escolhido('possuiCarteira'),
+                        quantidadeClientes: escolhido('quantidadeClientes'),
+                        certificacoes: listaDe('certificacoes'),
+                        horasSemanais: escolhido('horasSemanais'),
+                        veiculoProprio: escolhido('veiculoProprio'),
+                        possuiNotebook: escolhido('possuiNotebook'),
+                        participaTreinamentos: escolhido('participaTreinamentos'),
+                        rendaAtual: escolhido('rendaAtual'),
+                        maiorMotivacao: escolhido('maiorMotivacao'),
+                        habilidadeComercial: escolhido('habilidadeComercial'),
+                        rendaDesejada12Meses: elRenda.value.trim()
+                    }
+                };
+            }
+
+            /* ---------- Revisão ---------- */
+            const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+            function montarRevisao() {
+                const d = coletar();
+                const q = d.qualificacao;
+                const blocos = [
+                    ['Dados pessoais', 1, [
+                        ['Nome', d.dadosPessoais.nome], ['Idade', d.dadosPessoais.idade],
+                        ['E-mail', d.dadosPessoais.email], ['Telefone', d.dadosPessoais.telefone],
+                        ['WhatsApp', d.dadosPessoais.whatsapp]
+                    ]],
+                    ['Localização e redes', 2, [
+                        ['Cidade', d.localizacaoRedes.cidade], ['Estado', d.localizacaoRedes.estado],
+                        ['LinkedIn', d.localizacaoRedes.linkedin], ['Instagram', d.localizacaoRedes.instagram]
+                    ]],
+                    ['Atuação atual', 3, [
+                        ['Áreas', q.atuacaoAtual.join(', ')], ['Outra', q.outraAtuacao]
+                    ]],
+                    ['Experiência comercial', 4, [
+                        ['Tempo', q.tempoExperienciaComercial], ['Já trabalhou com', q.areasExperiencia.join(', ')]
+                    ]],
+                    ['Carteira de clientes', 5, [
+                        ['Possui', q.possuiCarteira], ['Quantidade', q.quantidadeClientes]
+                    ]],
+                    ['Certificações', 6, [['Possui', q.certificacoes.join(', ')]]],
+                    ['Estrutura e disponibilidade', 7, [
+                        ['Horas por semana', q.horasSemanais], ['Veículo próprio', q.veiculoProprio],
+                        ['Notebook', q.possuiNotebook], ['Capacitação', q.participaTreinamentos]
+                    ]],
+                    ['Momento financeiro', 8, [
+                        ['Renda atual', q.rendaAtual], ['Meta em 12 meses', q.rendaDesejada12Meses]
+                    ]],
+                    ['Motivação', 9, [['Maior motivação', q.maiorMotivacao]]],
+                    ['Autoavaliação', 10, [['Nota comercial', q.habilidadeComercial ? q.habilidadeComercial + ' de 10' : '']]]
+                ];
+
+                $('#wzReview').innerHTML = blocos.map(([titulo, etapa, linhas]) => {
+                    const itens = linhas.filter(([, v]) => v !== undefined).map(([rot, val]) =>
+                        '<dt>' + esc(rot) + '</dt><dd' + (val ? '' : ' class="empty"') + '>' + esc(val || 'não informado') + '</dd>'
+                    ).join('');
+                    return '<div class="review-block">' +
+                        '<div class="review-head"><h4>' + esc(titulo) + '</h4>' +
+                        '<button type="button" class="review-edit" data-goto="' + etapa + '">Editar</button></div>' +
+                        '<dl class="review-dl">' + itens + '</dl></div>';
+                }).join('');
+
+                $$('.review-edit', $('#wzReview')).forEach(b =>
+                    b.addEventListener('click', () => irPara(parseInt(b.dataset.goto, 10), false))
+                );
+            }
+
+            /* ---------- Envio ---------- */
+            const btnEnviar = $('#wzSubmit');
+            const rotuloEnviar = btnEnviar.querySelector('span').textContent;
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                if (enviando) return;
+                if (!validar(11)) return;
+
+                if (!ENDPOINT_QUALIFICACAO) {
+                    erro(11, 'Envio ainda não configurado: defina ENDPOINT_QUALIFICACAO no topo do script. Nada foi enviado.');
+                    return;
+                }
+
+                enviando = true;
+                btnEnviar.disabled = true;
+                btnEnviar.querySelector('span').textContent = 'Enviando...';
+
+                try {
+                    const resposta = await fetch(ENDPOINT_QUALIFICACAO, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            origem: 'LP Consultor Comercial',
+                            enviadoEm: new Date().toISOString(),
+                            ...coletar()
+                        })
+                    });
+                    if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+
+                    tela('wizard').classList.remove('active');
+                    tela('sucesso').classList.add('active');
+                    form.reset();
+                    condOutra.classList.remove('open');
+                    condQtd.classList.remove('open');
+                    elZap.readOnly = false;
+                    atual = 1;
+                    window.scrollTo({ top: $('#formulario').getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+                } catch (falha) {
+                    erro(11, 'Não foi possível enviar agora (' + falha.message + '). Tente novamente em instantes — suas respostas continuam preenchidas.');
+                } finally {
+                    enviando = false;
+                    btnEnviar.disabled = false;
+                    btnEnviar.querySelector('span').textContent = rotuloEnviar;
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+
+ formulário multietapas deve conter todas essas informações, organizadas em grupos lógicos. Não vamos acrescentar perguntas desnecessárias nem retirar nenhuma das enviadas.
+Formulário de Qualificação — estrutura completa
+Tela de abertura
+Título
+Candidate-se para Consultor Comercial
+Subtítulo
+Mercado financeiro e consórcios
+Descrição
+Conte-nos sobre sua experiência, seu perfil comercial e seus objetivos profissionais. O formulário é dividido em etapas rápidas.
+CTA
+INICIAR QUALIFICAÇÃO
+
+Etapa 1 — Dados pessoais
+Título
+Primeiro, fale sobre você
+Campos
+Nome completo
+Idade
+E-mail
+Telefone
+WhatsApp
+Configurações
+Nome: campo de texto;
+Idade: campo numérico;
+Telefone e WhatsApp com máscara (00) 00000-0000;
+Checkbox opcional: Meu telefone também é meu WhatsApp;
+Se marcado, copiar o telefone para o WhatsApp;
+Validar o formato do e-mail.
+CTA
+CONTINUAR
+
+Etapa 2 — Localização e redes profissionais
+Título
+Onde podemos encontrar você?
+Campos
+Cidade
+Estado
+LinkedIn
+Instagram
+Configurações
+Estado em lista com as 27 unidades federativas;
+LinkedIn: campo de URL ou nome de usuário;
+Instagram: permitir @usuario ou link;
+LinkedIn e Instagram podem ser opcionais, caso a empresa confirme.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 3 — Atuação profissional atual
+Título
+Em qual área você trabalha atualmente?
+Pergunta
+Atualmente você trabalha com:
+Mercado financeiro
+Consórcio
+Seguro
+Imóveis
+Representação comercial
+Vendas internas
+Empreendedor
+Outro
+Comportamento
+Como uma pessoa pode atuar em mais de uma área, o ideal é permitir múltiplas escolhas.
+Ao selecionar Outro, abrir:
+Qual é a sua área de atuação?
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 4 — Experiência comercial
+Título
+Qual é a sua experiência com vendas?
+Pergunta
+Quanto tempo possui de experiência comercial?
+Escolha única:
+Nunca vendi
+Menos de 1 ano
+De 1 a 3 anos
+De 3 a 5 anos
+Mais de 5 anos
+Pergunta
+Com quais áreas você já trabalhou?
+Permitir múltiplas escolhas:
+Consórcio
+Seguro
+Previdência
+Investimentos
+Crédito
+Imóveis
+Empresas
+B2B
+Alta renda
+Regra condicional
+Se selecionar Nunca vendi, ainda permitir responder em quais áreas já trabalhou, pois a pessoa pode ter experiência operacional sem ter atuado diretamente em vendas.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 5 — Carteira de clientes
+Título
+Você já possui uma rede de clientes?
+Pergunta
+Você possui carteira de clientes?
+Sim
+Não
+Se responder “Sim”
+Abrir automaticamente:
+Quantos clientes possui aproximadamente?
+Sugestão de respostas:
+Até 20
+De 21 a 50
+De 51 a 100
+De 101 a 300
+Mais de 300
+Se a empresa preferir, manter como campo numérico aberto.
+Se responder “Não”
+Não mostrar a pergunta sobre quantidade e avançar normalmente.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 6 — Certificações
+Título
+Você possui alguma certificação profissional?
+Pergunta
+Selecione todas as certificações que possui:
+CPA-10
+CPA-20
+CEA
+CFP
+ANCORD
+SUSEP
+Nenhuma
+Regras
+Permitir múltiplas escolhas;
+Se selecionar Nenhuma, desmarcar automaticamente as demais;
+Se selecionar uma certificação, desmarcar Nenhuma;
+Não impedir a candidatura de quem não possui certificações.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 7 — Estrutura e disponibilidade
+Título
+Qual é sua disponibilidade para essa oportunidade?
+Pergunta
+Quanto tempo você pode dedicar semanalmente?
+Sugestão de respostas:
+Até 10 horas por semana
+De 11 a 20 horas
+De 21 a 30 horas
+De 31 a 40 horas
+Mais de 40 horas
+Também pode ser usado um campo numérico:
+Número de horas disponíveis por semana
+Pergunta
+Você possui veículo próprio?
+Sim
+Não
+Pergunta
+Você possui notebook?
+Sim
+Não
+Pergunta
+Está disposto a participar de treinamentos?
+Sim
+Não
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 8 — Momento financeiro
+Título
+Conte-nos sobre seu momento atual
+Pergunta
+Qual é sua renda mensal hoje?
+Escolha única:
+Até R$ 2 mil
+De R$ 2 mil a R$ 5 mil
+De R$ 5 mil a R$ 10 mil
+De R$ 10 mil a R$ 20 mil
+Acima de R$ 20 mil
+Pergunta
+Quanto deseja ganhar nos próximos 12 meses?
+Campo monetário aberto com máscara:
+R$ 0,00
+Texto de apoio
+Informe uma meta mensal de renda que deseja alcançar nos próximos 12 meses.
+Isso evita a dúvida entre informar renda mensal ou o total acumulado no período.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 9 — Motivação
+Título
+O que você busca para sua carreira?
+Pergunta
+Qual é sua maior motivação?
+Escolha única:
+Ganhar mais
+Mudança de carreira
+Liberdade
+Crescimento
+Mercado financeiro
+Regra
+Como a pergunta pede a maior motivação, deve permitir somente uma resposta.
+CTAs
+VOLTAR
+CONTINUAR
+
+Etapa 10 — Autoavaliação comercial
+Título
+Como você avalia sua habilidade comercial?
+Pergunta
+De 0 a 10, qual nota você dá para sua habilidade comercial?
+Utilizar controle deslizante ou botões numerados:
+0 1 2 3 4 5 6 7 8 9 10
+Legendas
+0: Ainda preciso desenvolver
+5: Nível intermediário
+10: Excelente domínio comercial
+A nota escolhida deve ficar destacada em dourado.
+CTAs
+VOLTAR
+REVISAR RESPOSTAS
+
+Etapa 11 — Revisão e consentimento
+Título
+Revise sua qualificação
+Descrição
+Confira suas respostas antes de enviar. Caso necessário, você pode voltar e editar qualquer etapa.
+Resumo
+Mostrar as informações separadas em blocos:
+Dados pessoais
+Localização e redes
+Atuação atual
+Experiência comercial
+Carteira de clientes
+Certificações
+Estrutura e disponibilidade
+Momento financeiro
+Motivação
+Autoavaliação
+Cada bloco terá o botão Editar.
+Consentimento obrigatório
+Declaro que as informações fornecidas são verdadeiras e autorizo o tratamento dos meus dados para análise do meu perfil profissional, conforme a Política de Privacidade.
+CTA final
+ENVIAR MINHA QUALIFICAÇÃO
+
+Tela de confirmação
+Título
+Qualificação enviada com sucesso!
+Descrição
+Recebemos suas informações. Caso seu perfil avance no processo de seleção, a empresa poderá entrar em contato por telefone, WhatsApp ou e-mail.
+Frase institucional
+Planeje hoje. Conquiste amanhã.
+CTA
+VOLTAR AO INÍCIO
+
+Indicador de progresso
+O topo deve mostrar:
+Etapa 3 de 11 — Atuação profissional
+A barra deve avançar conforme o preenchimento:
+Etapa
+Progresso
+Dados pessoais
+9%
+Localização e redes
+18%
+Atuação atual
+27%
+Experiência
+36%
+Carteira de clientes
+45%
+Certificações
+55%
+Disponibilidade
+64%
+Momento financeiro
+73%
+Motivação
+82%
+Autoavaliação
+91%
+Revisão
+100%
+
+
+Lógicas condicionais
+SE “Telefone também é WhatsApp” estiver marcado:
+    copiar telefone para WhatsApp
+    manter os dois campos sincronizados
+
+SE “Outro” for selecionado na atuação atual:
+    exibir campo para informar a área
+
+SE possui carteira de clientes = Sim:
+    exibir quantidade aproximada
+
+SE possui carteira de clientes = Não:
+    ocultar quantidade
+    apagar eventual resposta anterior desse campo
+
+SE selecionar certificação “Nenhuma”:
+    desmarcar CPA-10, CPA-20, CEA, CFP, ANCORD e SUSEP
+
+SE selecionar qualquer certificação:
+    desmarcar “Nenhuma”
+
+SE uma etapa obrigatória estiver incompleta:
+    impedir avanço
+    destacar o campo
+    apresentar uma mensagem clara
+
+SE o envio estiver sendo processado:
+    desabilitar o botão final
+    exibir “Enviando...”
+    impedir envio duplicado
+
+Estrutura dos dados
+dadosPessoais
+├── nome
+├── idade
+├── email
+├── telefone
+└── whatsapp
+
+localizacaoRedes
+├── cidade
+├── estado
+├── linkedin
+└── instagram
+
+qualificacao
+├── atuacaoAtual[]
+├── outraAtuacao
+├── tempoExperienciaComercial
+├── areasExperiencia[]
+├── possuiCarteira
+├── quantidadeClientes
+├── certificacoes[]
+├── horasSemanais
+├── veiculoProprio
+├── possuiNotebook
+├── participaTreinamentos
+├── rendaAtual
+├── maiorMotivacao
+├── habilidadeComercial
+└── rendaDesejada12Meses
+
+.
+
+
