@@ -1,12 +1,16 @@
 import vinext from "vinext";
 import { defineConfig } from "vite";
-import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
 
-const { d1, r2 } = hostingConfig;
+// Bindings do Cloudflare. Antes vinham de `.openai/hosting.json`; agora são
+// declarados aqui para o build não depender daquela pasta. Nenhum código em
+// `app/` usa D1 ou R2 hoje (db/schema.ts está vazio de propósito) — preencha
+// com o nome do binding se e quando o site passar a usar banco ou storage.
+const d1: string | undefined = undefined;
+const r2: string | undefined = undefined;
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
