@@ -246,7 +246,6 @@ export default function Home() {
         <div className="faq-list" data-reveal="right">
           {[
             ["Preciso ter experiência no mercado financeiro?", "Não necessariamente. Experiência comercial ou no setor financeiro pode ajudar, mas postura, comunicação e vontade de aprender também fazem parte da análise."],
-            ["Em quais cidades existem oportunidades?", "A Investidor Protegido possui presença em Brasília, Goiânia e Belo Horizonte. A disponibilidade por localidade é confirmada durante o contato com os perfis selecionados."],
             ["Como funciona o processo de seleção?", "Após o envio, o perfil passa por uma análise. Os candidatos com maior alinhamento recebem contato para uma conversa e orientações sobre as próximas etapas."],
             ["Quais soluções fazem parte da atuação?", "O portfólio da empresa inclui planejamento financeiro, consórcios, seguros, previdência, crédito e investimentos, entre outras soluções."],
             ["Quando receberei um retorno?", "O contato acontece de acordo com a análise e a demanda de cada oportunidade. Por isso, é importante preencher todos os dados corretamente."],
