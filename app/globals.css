@@ -355,45 +355,6 @@ svg { width: 1.1em; height: 1.1em; }
   color: var(--ink);
   font-size: 13px;
 }
-.hero-proof {
-  width: 350px;
-  margin-top: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-}
-.hero-proof-avatars { display: flex; align-items: center; padding-left: 8px; }
-.hero-proof-avatar {
-  width: 36px;
-  height: 36px;
-  margin-left: -8px;
-  border: 2px solid #0b0c09;
-  border-radius: 50%;
-  background-color: #1a1b17;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0 0 0 1px rgba(255,208,0,0.55), 0 6px 16px rgba(0,0,0,0.32);
-}
-.hero-proof-avatar-team { background-image: url("/photo-equipe.webp"); background-position: 38% 34%; }
-.hero-proof-avatar-profile { background-image: url("/photo-perfil.webp"); background-position: 32% 28%; }
-.hero-proof-avatar-purpose { background-image: url("/photo-proposito.webp"); background-position: 33% 24%; }
-.hero-proof-copy { display: flex; flex-direction: column; gap: 3px; }
-.hero-proof-stars {
-  color: var(--gold);
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 0.13em;
-  text-shadow: 0 0 14px rgba(255,208,0,0.28);
-}
-.hero-proof-copy p {
-  margin: 0;
-  color: #d9dad4;
-  font-size: 11px;
-  line-height: 1.25;
-  white-space: nowrap;
-}
-.hero-proof-copy strong { color: #fff; font-weight: 800; }
 .hero-orb { position: absolute; z-index: 2; pointer-events: none; border-radius: 50%; background: var(--gold); filter: blur(15px); mix-blend-mode: screen; animation: orb-drift 6s ease-in-out infinite; }
 .hero-orb-one { width: 22px; height: 22px; right: 25%; top: 25%; }
 .hero-orb-two { width: 15px; height: 15px; right: 12%; bottom: 19%; animation-delay: -2.7s; }
@@ -832,9 +793,6 @@ footer { padding: 60px 0 26px; background: #030403; color: white; }
   .hero-copy > p { font-size: 16px; }
   .hero-copy .primary-cta { width: 100%; min-width: 0; min-height: 54px; }
   .application-cta { width: 100%; min-width: 0; }
-  .hero-proof { width: 100%; margin-top: 15px; gap: 12px; }
-  .hero-proof-avatar { width: 33px; height: 33px; }
-  .hero-proof-copy p { font-size: 10px; }
   .hero-orb-one { display: none; }
 
   .section-shell { width: min(100% - 32px, var(--content-width)); }

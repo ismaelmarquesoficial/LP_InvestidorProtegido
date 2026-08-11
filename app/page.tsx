@@ -88,17 +88,6 @@ export default function Home() {
             <a className="primary-cta" href="#candidatura">
               Faça parte <ArrowUpRight />
             </a>
-            <div className="hero-proof" aria-label="Mais de 27 anos de experiência no mercado">
-              <div className="hero-proof-avatars" aria-hidden="true">
-                <span className="hero-proof-avatar hero-proof-avatar-team" />
-                <span className="hero-proof-avatar hero-proof-avatar-profile" />
-                <span className="hero-proof-avatar hero-proof-avatar-purpose" />
-              </div>
-              <div className="hero-proof-copy">
-                <span className="hero-proof-stars" aria-hidden="true">★★★★★</span>
-                <p><strong>+27 anos</strong> de experiência no mercado</p>
-              </div>
-            </div>
           </div>
         </div>
 
